@@ -2,6 +2,27 @@
 
 用 Python / scikit-learn 完成 50 Startups 與 Boston Housing，產生可放 GitHub Pages 的靜態互動網頁。主程式為 `.py`，不依賴 Notebook。
 
+## 線上成果與原始碼
+
+- **成果網站（GitHub Pages）**：[https://c2838.github.io/L5V2/](https://c2838.github.io/L5V2/)
+- **GitHub 儲存庫**：[https://github.com/c2838/L5V2](https://github.com/c2838/L5V2)
+
+## 頁面截圖
+
+以下截圖擷取自已發布的成果網站，展示 50 Startups 資料集。
+
+### 首頁與模型選擇
+
+可切換資料集、選擇五種特徵選擇方法，並調整編碼後特徵數量。
+
+![50 Startups 首頁與模型選擇](assets/screenshots/site-overview.jpg)
+
+### 五種方法比較
+
+Compare All 5 Methods 同時呈現五種方法在不同特徵數量下的 Test RMSE 與 Test R²；重疊曲線代表模型的實際結果相同。
+
+![五種特徵選擇方法的 Test RMSE 與 Test R² 比較](assets/screenshots/method-comparison.jpg)
+
 ## 執行與查看
 
 專案路徑：`/Users/c2838/NCHU/115-1 中興作業/AIOT/L5V2`。使用 Python 3.12，已建立 `.venv`；實際套件版本固定於 `requirements.txt`。
@@ -97,6 +118,6 @@ Boston ARFF 的 CHAS/RAD 宣告為 nominal，讀入會成為 bytes；載入時�
 
 GitHub Pages 不能直接執行 sklearn，因此 Python 分析、瀏覽器呈現。`data.js` 避免雙擊 HTML 時 fetch JSON 的限制。類別的係數映射依 encoder 原生輸出建立，不靠切割欄位字串。
 
-本機版尚未公開發布、推送 repository 或繳交 LMS。
+成果網站已發布至上述 GitHub Pages 網址；更換資料或重新訓練後，需要將更新的 `docs/` 同步至 GitHub 才會更新線上成果。
 
 參考：[老師成果網站](https://huanchen1107.github.io/AIoT-DIC2-MultipleLR/)、[sklearn RFE](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html)、[sklearn ElasticNet](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html)。
