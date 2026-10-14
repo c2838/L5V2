@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="以多元線性回歸探索新創獲利與波士頓房價，呈現真實模型評估與特徵選擇結果。">
+  <title>回歸研究室｜AIoT DIC2</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">↗</span>回歸研究室<span class="brand-note">REGRESSION LAB</span></a><span class="course">AIoT · DIC2 / 2026</span></header>
+  <main>
+    <section class="hero">
+      <div><p class="eyebrow">一份資料，多種可能。</p><h1>哪些特徵，<br>讓預測更接近真實？</h1><p class="intro">從新創公司的獲利到城市的房價，觀察特徵選擇如何改變模型。<br class="desktop">用實際資料，探索模型表現與複雜度之間的關係。</p></div>
+      <div class="hero-visual" aria-hidden="true"><svg viewBox="0 0 300 210"><path d="M30 180H275M30 180V25" fill="none" stroke="#9ea998" stroke-width="1"/><path d="M55 153L255 40" stroke="#48745a" stroke-width="2" stroke-dasharray="5 5"/><g fill="#507d5a"><circle cx="58" cy="149" r="5"/><circle cx="88" cy="149" r="4"/><circle cx="99" cy="111" r="6"/><circle cx="130" cy="125" r="4"/><circle cx="149" cy="92" r="6"/><circle cx="170" cy="87" r="4"/><circle cx="190" cy="95" r="5"/><circle cx="223" cy="53" r="6"/><circle cx="244" cy="49" r="4"/></g><g font-size="10" fill="#6c796b"><text x="207" y="200">實際值 →</text><text x="15" y="22">預測值</text></g></svg><span class="visual-note">MORE FEATURES ≠ BETTER PREDICTIONS</span></div>
+    </section>
+    <section class="workspace" aria-label="選擇分析題目">
+      <div class="workspace-label"><span class="step">01</span><div><label for="dataset">選擇研究題目</label><p id="dataset-subtitle"></p></div></div>
+      <select id="dataset" aria-label="研究題目"></select>
+      <div class="data-stats"><span id="sample-count"></span><span id="feature-count"></span><span>80 / 20 訓練與測試</span></div>
+    </section>
+    <section class="analysis-section">
+      <div class="section-top"><div><p class="eyebrow">MODEL EXPLORER</p><h2>找到適合的特徵組合</h2></div><span class="badge" id="best-summary"></span></div>
+      <div class="controls"><fieldset class="methods"><legend class="sr-only">特徵選擇方法</legend><button data-method="lasso">Lasso 排序</button><button data-method="forward">Forward Selection</button><button data-method="baseline">全特徵基準</button></fieldset><div class="k-control"><label for="feature-k">編碼後特徵數</label><select id="feature-k"></select></div></div>
+      <div class="selection-line"><span id="selection-status"></span><p id="method-detail"></p></div>
+      <div id="metrics" class="metrics" aria-live="polite"></div>
+      <div class="active-features"><span>目前使用</span><div id="feature-chips"></div></div>
+      <div class="chart-grid"><article class="panel"><div class="panel-head"><h3>誤差隨特徵數量變化</h3><span class="chart-tag">RMSE · 越低越好</span></div><div id="rmse-chart" class="chart"></div><p class="chart-caption">測試集只用於結果比較；最佳模型依訓練集交叉驗證選擇。</p></article><article class="panel"><div class="panel-head"><h3>模型的解釋程度</h3><span class="chart-tag">R² · 越高越好</span></div><div id="r2-chart" class="chart"></div><p class="chart-caption">R² 是相對於平均值預測的改善程度，並非分類準確率。</p></article></div>
+      <article class="panel table-panel"><div class="panel-head"><div><h3>每一個模型，都有依據</h3><p class="muted">點選一列，查看該組合的指標與預測。</p></div><a id="download-comparison" class="text-link" download>下載比較表 ↗</a></div><div class="table-scroll"><table><caption class="sr-only">特徵組合的交叉驗證與測試結果</caption><thead><tr><th>特徵數</th><th>使用的特徵</th><th>CV RMSE</th><th>Test RMSE</th><th>Test R²</th></tr></thead><tbody id="comparison-body"></tbody></table></div></article>
+    </section>
+    <section class="predict-section"><div class="section-top"><div><p class="eyebrow">TRY A PREDICTION</p><h2 id="prediction-title">把模型帶入一筆新資料</h2></div><button id="reset-inputs" class="subtle-button">重設輸入</button></div><div class="predict-grid"><article class="panel"><div id="prediction-inputs" class="input-grid"></div><p id="range-note" class="muted"></p></article><article class="prediction-result"><p id="prediction-label"></p><output id="predicted-value" aria-live="polite"></output><p id="prediction-unit"></p><div class="prediction-rule"><span>目前模型的線性公式</span><p id="equation"></p></div><p class="prediction-note">使用 Python 匯出的係數試算，不重新訓練模型。輸入超出訓練範圍時，預測可靠性可能降低。</p></article></div></section>
+    <section class="diagnostic-section"><div class="section-top"><div><p class="eyebrow">LOOK BEYOND THE SCORE</p><h2>分數之外，看看誤差</h2></div><a id="download-predictions" class="text-link" download>下載目前模型預測 ↗</a></div><div class="chart-grid"><article class="panel"><h3>實際值 vs. 預測值</h3><div id="actual-chart" class="chart"></div><p class="chart-caption">越靠近虛線，預測與實際值越接近。</p></article><article class="panel"><h3>殘差分布</h3><div id="residual-chart" class="chart"></div><p class="chart-caption">殘差＝實際值－預測值。觀察是否有規律或明顯偏離。</p></article></div><article class="panel learning-panel"><div><h3>更多訓練資料，有幫助嗎？</h3><p class="muted">全特徵基準模型的 learning curve</p><p class="learning-copy">比較不同訓練資料量下的訓練與驗證誤差。若兩條曲線相差很大，可能有過擬合跡象；若都偏高，則可能需要不同特徵或模型。</p><p class="muted">只使用訓練集內的交叉驗證，最終測試集不參與這張曲線。</p></div><div id="learning-chart" class="chart"></div></article></section>
+    <section class="methodology"><div class="section-top"><div><p class="eyebrow">CRISP-DM WORKFLOW</p><h2>從問題出發，讓分析可重現</h2></div><a id="download-report" class="text-link" download>下載分析報告 ↗</a></div><div class="workflow-grid"><article><span>01 / 業務理解</span><h3>我們要預測什麼？</h3><p id="business-note"></p></article><article><span>02 / 資料理解</span><h3>先了解資料</h3><p id="data-note"></p></article><article><span>03 / 資料準備</span><h3>保留獨立測試集</h3><p>數值缺值用中位數填補，類別欄位編碼。所有轉換只學習當次訓練資料。</p></article><article><span>04 / 建立模型</span><h3>比較不同特徵</h3><p>全特徵線性回歸、Lasso 係數排序、Forward Selection。每種方法共用相同切分。</p></article><article><span>05 / 評估</span><h3>驗證後再下結論</h3><p id="conclusion"></p></article><article><span>06 / 成果應用</span><h3>保留完整分析流程</h3><p>匯出模型、圖表與報告。更換 Dataset 後，用 Python 重新產生這份靜態成果。</p></article></div><details><summary>資料來源、實驗設定與重要限制</summary><div class="details-content"><p id="source-note"></p><p id="experiment-note"></p><p>固定 k 的 Lasso 排序可能包含零係數特徵；最終模型以選定欄位重新訓練 LinearRegression。特徵數量指編碼後的欄位數。</p><p>網站的「最佳」只根據 training CV。查看多個 test 分數後重新挑選模型，會讓測試評估失去獨立性。單次切分與小樣本不保證其他資料上有相同表現。</p><p>係數描述關聯，不能推論因果；不同題目的誤差單位不同，不能直接比較 RMSE。Boston 資料具有歷史與偏差限制，本頁僅作課堂分析。</p><p>自訂資料由 Python 載入並重新輸出，公開靜態網頁不提供即時資料訓練。</p></div></details></section>
+    <footer><span>回歸研究室 · AIoT DIC2</span><span>資料與模型結果由 Python / scikit-learn 產生</span></footer>
+  </main>
+</body>
+</html>

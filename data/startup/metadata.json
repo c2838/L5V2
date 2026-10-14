@@ -1,0 +1,28 @@
+{
+  "name": "startup",
+  "title": "50 Startups",
+  "subtitle": "新創公司的獲利，能由支出預測嗎？",
+  "target": "Profit",
+  "unit": "資料集貨幣單位",
+  "url": "https://raw.githubusercontent.com/Avik-Jain/100-Days-Of-ML-Code/master/datasets/50_Startups.csv",
+  "source": "https://raw.githubusercontent.com/Avik-Jain/100-Days-Of-ML-Code/master/datasets/50_Startups.csv",
+  "sha256": "c6075ca5a7551243b31193bad9228f0a1b9468cdde2475c6586c56dcfac5630d",
+  "rows": 50,
+  "raw_feature_count": 4,
+  "missing_values": {
+    "R&D Spend": 0,
+    "Administration": 0,
+    "Marketing Spend": 0,
+    "State": 0,
+    "Profit": 0
+  },
+  "dropped_missing_targets": 0,
+  "duplicate_rows": 0,
+  "columns": [
+    "R&D Spend",
+    "Administration",
+    "Marketing Spend",
+    "State",
+    "Profit"
+  ]
+}

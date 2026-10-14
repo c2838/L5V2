@@ -1,0 +1,5649 @@
+{
+  "metadata": {
+    "name": "startup",
+    "title": "50 Startups",
+    "subtitle": "新創公司的獲利，能由支出預測嗎？",
+    "target": "Profit",
+    "unit": "資料集貨幣單位",
+    "url": "https://raw.githubusercontent.com/Avik-Jain/100-Days-Of-ML-Code/master/datasets/50_Startups.csv",
+    "source": "https://raw.githubusercontent.com/Avik-Jain/100-Days-Of-ML-Code/master/datasets/50_Startups.csv",
+    "sha256": "c6075ca5a7551243b31193bad9228f0a1b9468cdde2475c6586c56dcfac5630d",
+    "rows": 50,
+    "raw_feature_count": 4,
+    "missing_values": {
+      "R&D Spend": 0,
+      "Administration": 0,
+      "Marketing Spend": 0,
+      "State": 0,
+      "Profit": 0
+    },
+    "dropped_missing_targets": 0,
+    "duplicate_rows": 0,
+    "columns": [
+      "R&D Spend",
+      "Administration",
+      "Marketing Spend",
+      "State",
+      "Profit"
+    ]
+  },
+  "seed": 0,
+  "test_size": 0.2,
+  "train_rows": 40,
+  "test_rows": 10,
+  "cv_folds": 5,
+  "encoded_feature_count": 5,
+  "encoded_features": [
+    "R&D Spend",
+    "Administration",
+    "Marketing Spend",
+    "State_Florida",
+    "State_New York"
+  ],
+  "available_methods": [
+    "lasso",
+    "forward",
+    "rfe",
+    "elasticnet",
+    "exhaustive"
+  ],
+  "input_schema": [
+    {
+      "name": "R&D Spend",
+      "type": "number",
+      "default": 71430.7,
+      "min": 0.0,
+      "max": 165349.2
+    },
+    {
+      "name": "Administration",
+      "type": "number",
+      "default": 125604.625,
+      "min": 51283.14,
+      "max": 157693.92
+    },
+    {
+      "name": "Marketing Spend",
+      "type": "number",
+      "default": 208157.65500000003,
+      "min": 0.0,
+      "max": 471784.1
+    },
+    {
+      "name": "State",
+      "type": "category",
+      "default": "California",
+      "values": [
+        "California",
+        "Florida",
+        "New York"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "key": "baseline-5",
+      "method": "baseline",
+      "method_label": "Baseline OLS",
+      "k": 5,
+      "features": [
+        "R&D Spend",
+        "Administration",
+        "Marketing Spend",
+        "State_Florida",
+        "State_New York"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10158.660838244701,
+      "cv_rmse_std": 3434.4604887007586,
+      "train": {
+        "mae": 6341.535758081853,
+        "mse": 81571001.8007737,
+        "rmse": 9031.66661257897,
+        "r2": 0.9501847627493607
+      },
+      "test": {
+        "mae": 7514.293659640604,
+        "mse": 83502864.03257725,
+        "rmse": 9137.990152794937,
+        "r2": 0.9347068473282426
+      },
+      "model": {
+        "intercept": 42554.16761773238,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7734671927328,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.032884597536255826,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.036610025863856276,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -959.2841600571085,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 699.3690525192578,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8530904064885458,
+        "f_stat": 129.70441863373296,
+        "f_p_value": 3.9077038418692665e-21,
+        "f_df_model": 5,
+        "f_df_residual": 34,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42554.16761773238,
+            "std_error": 8358.538206708889,
+            "t_stat": 5.091101645450008,
+            "p_value": 1.3086760335435317e-05,
+            "ci95": [
+              25567.574241225873,
+              59540.760994238895
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7734671927328,
+            "std_error": 0.05514906906550924,
+            "t_stat": 14.025027182490263,
+            "p_value": 1.0686978486060102e-15,
+            "ci95": [
+              0.6613907999304351,
+              0.8855435855351648
+            ],
+            "vif": 2.704652545511513,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.032884597536255826,
+            "std_error": 0.06646820999717501,
+            "t_stat": 0.49474173499863267,
+            "p_value": 0.6239644295903694,
+            "ci95": [
+              -0.10219505727468017,
+              0.16796425234719184
+            ],
+            "vif": 1.234107409860041,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.036610025863856276,
+            "std_error": 0.019427464933191925,
+            "t_stat": 1.8844468894810797,
+            "p_value": 0.06807739016982792,
+            "ci95": [
+              -0.0028713330765855333,
+              0.07609138480429808
+            ],
+            "vif": 2.3978922282957282,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -959.2841600571085,
+            "std_error": 4038.1077213805215,
+            "t_stat": -0.2375578429911609,
+            "p_value": 0.8136497729181493,
+            "ci95": [
+              -9165.706404866158,
+              7247.138084751941
+            ],
+            "vif": 1.2743836566980133,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 699.3690525192578,
+            "std_error": 3661.5627273597233,
+            "t_stat": 0.1910028871807853,
+            "p_value": 0.8496593413793958,
+            "ci95": [
+              -6741.821695679951,
+              8140.559800718466
+            ],
+            "vif": 1.2713276107446665,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103015.2015979618,
+          "residual": 267.1784020382038,
+          "absolute_error": 267.1784020382038,
+          "relative_error_percent": 0.25868730178197263,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132582.27760815568,
+          "residual": 11677.122391844314,
+          "absolute_error": 11677.122391844314,
+          "relative_error_percent": 8.094531373237594,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132447.73845174484,
+          "residual": 13674.211548255174,
+          "absolute_error": 13674.211548255174,
+          "relative_error_percent": 9.358081758596278,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71976.09851257899,
+          "residual": 5822.731487421013,
+          "absolute_error": 5822.731487421013,
+          "relative_error_percent": 7.484343257374196,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178537.4822105507,
+          "residual": 12512.907789449324,
+          "absolute_error": 12512.907789449324,
+          "relative_error_percent": 6.549532711997773,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116161.24230165106,
+          "residual": -11152.93230165106,
+          "absolute_error": 11152.93230165106,
+          "relative_error_percent": 10.620999711023881,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67851.69209675625,
+          "residual": 13377.36790324375,
+          "absolute_error": 13377.36790324375,
+          "relative_error_percent": 16.46869716729918,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98791.7337468745,
+          "residual": -1308.1737468744977,
+          "absolute_error": 1308.1737468744977,
+          "relative_error_percent": 1.341942935685256,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113969.43533012446,
+          "residual": -3617.1853301244555,
+          "absolute_error": 3617.1853301244555,
+          "relative_error_percent": 3.277853718546251,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 167921.06569550425,
+          "residual": -1733.1256955042481,
+          "absolute_error": 1733.1256955042481,
+          "relative_error_percent": 1.0428709180126114,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "lasso-1",
+      "method": "lasso",
+      "method_label": "Lasso (L1 Ranking)",
+      "k": 1,
+      "features": [
+        "R&D Spend"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": null,
+      "cv_rmse": 9745.400782319539,
+      "cv_rmse_std": 3225.497354376572,
+      "train": {
+        "mae": 6941.739119641637,
+        "mse": 90128072.57027796,
+        "rmse": 9493.580597976612,
+        "r2": 0.9449589778363044
+      },
+      "test": {
+        "mae": 6772.453280477896,
+        "mse": 68473440.71905927,
+        "rmse": 8274.868018225987,
+        "r2": 0.946458760778722
+      },
+      "model": {
+        "intercept": 48416.297661385055,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.8516227998779368,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9397661058760622,
+        "f_stat": 652.3941552354449,
+        "f_p_value": 1.5627804982980173e-25,
+        "f_df_model": 1,
+        "f_df_residual": 38,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 48416.297661385055,
+            "std_error": 2842.7166679428,
+            "t_stat": 17.031700066128174,
+            "p_value": 2.222357736689934e-19,
+            "ci95": [
+              42661.51862914637,
+              54171.07669362374
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.8516227998779368,
+            "std_error": 0.03334204621886622,
+            "t_stat": 25.542007658667803,
+            "p_value": 1.562780498298021e-25,
+            "ci95": [
+              0.7841253560995809,
+              0.9191202436562926
+            ],
+            "vif": 1.0,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 104667.27805997859,
+          "residual": -1384.8980599785864,
+          "absolute_error": 1384.8980599785864,
+          "relative_error_percent": 1.340885115136373,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 134150.8341057847,
+          "residual": 10108.56589421528,
+          "absolute_error": 10108.56589421528,
+          "relative_error_percent": 7.00721470782166,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 135207.80019516923,
+          "residual": 10914.149804830784,
+          "absolute_error": 10914.149804830784,
+          "relative_error_percent": 7.469206238235107,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72170.54428855635,
+          "residual": 5628.285711443648,
+          "absolute_error": 5628.285711443648,
+          "relative_error_percent": 7.234409195412899,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179090.5860250835,
+          "residual": 11959.803974916518,
+          "absolute_error": 11959.803974916518,
+          "relative_error_percent": 6.260025941279951,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 109824.77386586338,
+          "residual": -4816.463865863378,
+          "absolute_error": 4816.463865863378,
+          "relative_error_percent": 4.586745435540652,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 65644.27773756777,
+          "residual": 15584.782262432229,
+          "absolute_error": 15584.782262432229,
+          "relative_error_percent": 19.18621520725739,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 100481.43277138655,
+          "residual": -2997.872771386552,
+          "absolute_error": 2997.872771386552,
+          "relative_error_percent": 3.075259840106939,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 111431.75202432103,
+          "residual": -1079.502024321031,
+          "absolute_error": 1079.502024321031,
+          "relative_error_percent": 0.9782329080929759,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169438.14843539096,
+          "residual": -3250.2084353909595,
+          "absolute_error": 3250.2084353909595,
+          "relative_error_percent": 1.95574265821633,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "lasso-2",
+      "method": "lasso",
+      "method_label": "Lasso (L1 Ranking)",
+      "k": 2,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": null,
+      "cv_rmse": 9482.344018607644,
+      "cv_rmse_std": 3204.756544406721,
+      "train": {
+        "mae": 6376.801477711442,
+        "mse": 82421303.30986765,
+        "rmse": 9078.617918486692,
+        "r2": 0.9496654854268441
+      },
+      "test": {
+        "mae": 6886.594588246498,
+        "mse": 67220275.37568106,
+        "rmse": 8198.797190788478,
+        "r2": 0.9474386447268489
+      },
+      "model": {
+        "intercept": 46346.3387612366,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7886182999424614,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03257662731702059,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9324211146488057,
+        "f_stat": 349.04104329569395,
+        "f_p_value": 9.649812292514553e-25,
+        "f_df_model": 2,
+        "f_df_residual": 37,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 46346.3387612366,
+            "std_error": 2971.236462798471,
+            "t_stat": 15.59833400724529,
+            "p_value": 7.489298476787704e-18,
+            "ci95": [
+              40326.04183443706,
+              52366.635688036135
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7886182999424614,
+            "std_error": 0.04681337574933552,
+            "t_stat": 16.846003675640826,
+            "p_value": 6.120365803854702e-19,
+            "ci95": [
+              0.693765390830208,
+              0.8834712090547147
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03257662731702059,
+            "std_error": 0.017514140043660788,
+            "t_stat": 1.8600186612537475,
+            "p_value": 0.07084678339897563,
+            "ci95": [
+              -0.0029103912358812156,
+              0.06806364586992239
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102284.6460518289,
+          "residual": 997.7339481711097,
+          "absolute_error": 997.7339481711097,
+          "relative_error_percent": 0.9660253260731497,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 133873.92383811908,
+          "residual": 10385.476161880913,
+          "absolute_error": 10385.476161880913,
+          "relative_error_percent": 7.199167722783343,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 134182.14951650106,
+          "residual": 11939.800483498955,
+          "absolute_error": 11939.800483498955,
+          "relative_error_percent": 8.17112041243561,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 73701.10693630345,
+          "residual": 4097.723063696554,
+          "absolute_error": 4097.723063696554,
+          "relative_error_percent": 5.267075435063168,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 180642.25299736104,
+          "residual": 10408.137002638978,
+          "absolute_error": 10408.137002638978,
+          "relative_error_percent": 5.447849126421033,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 114717.24903894303,
+          "residual": -9708.939038943034,
+          "absolute_error": 9708.939038943034,
+          "relative_error_percent": 9.245876863405414,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 68335.07575312017,
+          "residual": 12893.98424687983,
+          "absolute_error": 12893.98424687983,
+          "relative_error_percent": 15.873610068711654,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 97433.4592227501,
+          "residual": 50.10077724989969,
+          "absolute_error": 50.10077724989969,
+          "relative_error_percent": 0.05139407839629543,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114580.92136452152,
+          "residual": -4228.67136452152,
+          "absolute_error": 4228.67136452152,
+          "relative_error_percent": 3.831975663859614,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 170343.31979498419,
+          "residual": -4155.379794984183,
+          "absolute_error": 4155.379794984183,
+          "relative_error_percent": 2.500409954527496,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "lasso-3",
+      "method": "lasso",
+      "method_label": "Lasso (L1 Ranking)",
+      "k": 3,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration"
+      ],
+      "alpha": 1000.0,
+      "l1_ratio": null,
+      "cv_rmse": 9898.722228077006,
+      "cv_rmse_std": 3442.67050877265,
+      "train": {
+        "mae": 6334.814095571141,
+        "mse": 81943542.34370568,
+        "rmse": 9052.267248800474,
+        "r2": 0.9499572530324031
+      },
+      "test": {
+        "mae": 7320.441614848125,
+        "mse": 77506468.16885397,
+        "rmse": 8803.775790469335,
+        "r2": 0.9393955917820571
+      },
+      "model": {
+        "intercept": 42989.00816508668,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7788410440821668,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03471025486942026,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.02939189909755274,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9090933876730857,
+        "f_stat": 227.79498982679945,
+        "f_p_value": 1.8474317896878477e-23,
+        "f_df_model": 3,
+        "f_df_residual": 36,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42989.00816508668,
+            "std_error": 7919.7725171036,
+            "t_stat": 5.428060979308092,
+            "p_value": 4.041216456576364e-06,
+            "ci95": [
+              26926.965034019027,
+              59051.05129615433
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7788410440821668,
+            "std_error": 0.051911034439577806,
+            "t_stat": 15.003381313633886,
+            "p_value": 4.592578715978761e-17,
+            "ci95": [
+              0.6735605865505695,
+              0.8841215016137641
+            ],
+            "vif": 2.525800946293161,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03471025486942026,
+            "std_error": 0.018306482490836995,
+            "t_stat": 1.8960635876823362,
+            "p_value": 0.06600037194124721,
+            "ci95": [
+              -0.002417012449299899,
+              0.07183752218814042
+            ],
+            "vif": 2.244149821335617,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.02939189909755274,
+            "std_error": 0.06415469322089738,
+            "t_stat": 0.4581410590858969,
+            "p_value": 0.64960469419921,
+            "ci95": [
+              -0.1007198493584904,
+              0.1595036475535959
+            ],
+            "vif": 1.2117875999957919,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103901.89696960006,
+          "residual": -619.5169696000521,
+          "absolute_error": 619.5169696000521,
+          "relative_error_percent": 0.5998283246378057,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132763.0599312563,
+          "residual": 11496.34006874368,
+          "absolute_error": 11496.34006874368,
+          "relative_error_percent": 7.969213838920501,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 133567.9037004382,
+          "residual": 12554.0462995618,
+          "absolute_error": 12554.0462995618,
+          "relative_error_percent": 8.59148560470333,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72911.78976735754,
+          "residual": 4887.040232642466,
+          "absolute_error": 4887.040232642466,
+          "relative_error_percent": 6.281637182258996,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179627.92567223712,
+          "residual": 11422.464327762893,
+          "absolute_error": 11422.464327762893,
+          "relative_error_percent": 5.97877048445852,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115166.64864795281,
+          "residual": -10158.338647952813,
+          "absolute_error": 10158.338647952813,
+          "relative_error_percent": 9.673842620600992,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67113.57690570195,
+          "residual": 14115.483094298048,
+          "absolute_error": 14115.483094298048,
+          "relative_error_percent": 17.37738082195959,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98154.80686776248,
+          "residual": -671.2468677624856,
+          "absolute_error": 671.2468677624856,
+          "relative_error_percent": 0.6885744301526182,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114756.11555221121,
+          "residual": -4403.865552211209,
+          "absolute_error": 4403.865552211209,
+          "relative_error_percent": 3.9907347174264314,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169064.0140879458,
+          "residual": -2876.0740879458026,
+          "absolute_error": 2876.0740879458026,
+          "relative_error_percent": 1.730615403227095,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "lasso-4",
+      "method": "lasso",
+      "method_label": "Lasso (L1 Ranking)",
+      "k": 4,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_Florida"
+      ],
+      "alpha": 1000.0,
+      "l1_ratio": null,
+      "cv_rmse": 10002.554408234306,
+      "cv_rmse_std": 3408.1763838474553,
+      "train": {
+        "mae": 6297.559585828065,
+        "mse": 81658527.73260553,
+        "rmse": 9036.510816272259,
+        "r2": 0.9501313108490097
+      },
+      "test": {
+        "mae": 7431.473270412908,
+        "mse": 82238439.22167161,
+        "rmse": 9068.541184869351,
+        "r2": 0.9356955353592089
+      },
+      "model": {
+        "intercept": 42922.43234093212,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7753799289895303,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.036327059535269504,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.031870423249796914,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -1272.160786779385,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.884251963646576,
+        "f_stat": 166.71079812740047,
+        "f_p_value": 2.871937033084108e-22,
+        "f_df_model": 4,
+        "f_df_residual": 35,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42922.43234093212,
+            "std_error": 8020.396797666889,
+            "t_stat": 5.351659453235299,
+            "p_value": 5.529625873089752e-06,
+            "ci95": [
+              26640.161214274915,
+              59204.70346758933
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7753799289895303,
+            "std_error": 0.0534805511079929,
+            "t_stat": 14.498353381284556,
+            "p_value": 2.3058263626640457e-16,
+            "ci95": [
+              0.6668086381779963,
+              0.8839512198010644
+            ],
+            "vif": 2.6154729650389013,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.036327059535269504,
+            "std_error": 0.019102403989173893,
+            "t_stat": 1.9017009354350125,
+            "p_value": 0.0654670335800984,
+            "ci95": [
+              -0.0024528822517933813,
+              0.07510700132233239
+            ],
+            "vif": 2.3839482387938506,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.031870423249796914,
+            "std_error": 0.06533744480699476,
+            "t_stat": 0.48778190429609514,
+            "p_value": 0.6287460582298844,
+            "ci95": [
+              -0.10077164146450232,
+              0.16451248796409615
+            ],
+            "vif": 1.2262320516580507,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -1272.160786779385,
+            "std_error": 3639.780492735835,
+            "t_stat": -0.34951579891104023,
+            "p_value": 0.7287964395044193,
+            "ci95": [
+              -8661.308022173342,
+              6116.9864486145725
+            ],
+            "vif": 1.0646776983458153,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102978.26243868438,
+          "residual": 304.1175613156229,
+          "absolute_error": 304.1175613156229,
+          "relative_error_percent": 0.2944525109855358,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132979.3402644851,
+          "residual": 11280.059735514893,
+          "absolute_error": 11280.059735514893,
+          "relative_error_percent": 7.819289235581802,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132521.05285610058,
+          "residual": 13600.897143899434,
+          "absolute_error": 13600.897143899434,
+          "relative_error_percent": 9.307908321713084,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71952.38725075763,
+          "residual": 5846.442749242371,
+          "absolute_error": 5846.442749242371,
+          "relative_error_percent": 7.514820915998828,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178668.35249140533,
+          "residual": 12382.037508594687,
+          "absolute_error": 12382.037508594687,
+          "relative_error_percent": 6.481032312257875,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115738.44472844573,
+          "residual": -10730.13472844573,
+          "absolute_error": 10730.13472844573,
+          "relative_error_percent": 10.218367221075866,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67439.97515767507,
+          "residual": 13789.084842324926,
+          "absolute_error": 13789.084842324926,
+          "relative_error_percent": 16.975556337011565,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98397.73803877179,
+          "residual": -914.1780387717881,
+          "absolute_error": 914.1780387717881,
+          "relative_error_percent": 0.9377766248706839,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113956.00325905217,
+          "residual": -3603.7532590521732,
+          "absolute_error": 3603.7532590521732,
+          "relative_error_percent": 3.265681722893891,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 168051.96713696746,
+          "residual": -1864.0271369674592,
+          "absolute_error": 1864.0271369674592,
+          "relative_error_percent": 1.1216380303934566,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "lasso-5",
+      "method": "lasso",
+      "method_label": "Lasso (L1 Ranking)",
+      "k": 5,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_Florida",
+        "State_New York"
+      ],
+      "alpha": 1000.0,
+      "l1_ratio": null,
+      "cv_rmse": 10158.660838244647,
+      "cv_rmse_std": 3434.4604887007768,
+      "train": {
+        "mae": 6341.535758081851,
+        "mse": 81571001.80077371,
+        "rmse": 9031.66661257897,
+        "r2": 0.9501847627493607
+      },
+      "test": {
+        "mae": 7514.293659640607,
+        "mse": 83502864.03257746,
+        "rmse": 9137.99015279495,
+        "r2": 0.9347068473282424
+      },
+      "model": {
+        "intercept": 42554.16761773238,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7734671927327998,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03661002586385613,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.03288459753625607,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -959.2841600571069,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 699.3690525192592,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8530904064885454,
+        "f_stat": 129.70441863373293,
+        "f_p_value": 3.9077038418692665e-21,
+        "f_df_model": 5,
+        "f_df_residual": 34,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42554.16761773238,
+            "std_error": 8358.538206708878,
+            "t_stat": 5.091101645450014,
+            "p_value": 1.3086760335435056e-05,
+            "ci95": [
+              25567.574241225895,
+              59540.760994238866
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7734671927327998,
+            "std_error": 0.05514906906550928,
+            "t_stat": 14.02502718249025,
+            "p_value": 1.0686978486060337e-15,
+            "ci95": [
+              0.6613907999304349,
+              0.8855435855351648
+            ],
+            "vif": 2.704652545511513,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03661002586385613,
+            "std_error": 0.019427464933191915,
+            "t_stat": 1.8844468894810733,
+            "p_value": 0.06807739016982882,
+            "ci95": [
+              -0.002871333076585658,
+              0.07609138480429792
+            ],
+            "vif": 2.3978922282957282,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.03288459753625607,
+            "std_error": 0.06646820999717497,
+            "t_stat": 0.49474173499863666,
+            "p_value": 0.6239644295903665,
+            "ci95": [
+              -0.10219505727467985,
+              0.16796425234719198
+            ],
+            "vif": 1.234107409860041,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -959.2841600571069,
+            "std_error": 4038.1077213805165,
+            "t_stat": -0.2375578429911608,
+            "p_value": 0.8136497729181493,
+            "ci95": [
+              -9165.706404866145,
+              7247.138084751932
+            ],
+            "vif": 1.2743836566980131,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 699.3690525192592,
+            "std_error": 3661.562727359725,
+            "t_stat": 0.1910028871807856,
+            "p_value": 0.8496593413793956,
+            "ci95": [
+              -6741.821695679953,
+              8140.559800718471
+            ],
+            "vif": 1.2713276107446665,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103015.20159796182,
+          "residual": 267.17840203818923,
+          "absolute_error": 267.17840203818923,
+          "relative_error_percent": 0.25868730178195853,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132582.27760815565,
+          "residual": 11677.122391844343,
+          "absolute_error": 11677.122391844343,
+          "relative_error_percent": 8.094531373237615,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132447.7384517448,
+          "residual": 13674.211548255204,
+          "absolute_error": 13674.211548255204,
+          "relative_error_percent": 9.358081758596297,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71976.09851257897,
+          "residual": 5822.731487421028,
+          "absolute_error": 5822.731487421028,
+          "relative_error_percent": 7.484343257374215,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178537.48221055063,
+          "residual": 12512.907789449382,
+          "absolute_error": 12512.907789449382,
+          "relative_error_percent": 6.549532711997803,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116161.24230165103,
+          "residual": -11152.932301651032,
+          "absolute_error": 11152.932301651032,
+          "relative_error_percent": 10.620999711023853,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67851.69209675625,
+          "residual": 13377.36790324375,
+          "absolute_error": 13377.36790324375,
+          "relative_error_percent": 16.46869716729918,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98791.73374687451,
+          "residual": -1308.1737468745123,
+          "absolute_error": 1308.1737468745123,
+          "relative_error_percent": 1.3419429356852708,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113969.43533012444,
+          "residual": -3617.185330124441,
+          "absolute_error": 3617.185330124441,
+          "relative_error_percent": 3.277853718546238,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 167921.0656955042,
+          "residual": -1733.12569550419,
+          "absolute_error": 1733.12569550419,
+          "relative_error_percent": 1.0428709180125766,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "forward-1",
+      "method": "forward",
+      "method_label": "Forward SFS",
+      "k": 1,
+      "features": [
+        "R&D Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9745.400782319539,
+      "cv_rmse_std": 3225.497354376572,
+      "train": {
+        "mae": 6941.739119641637,
+        "mse": 90128072.57027796,
+        "rmse": 9493.580597976612,
+        "r2": 0.9449589778363044
+      },
+      "test": {
+        "mae": 6772.453280477896,
+        "mse": 68473440.71905927,
+        "rmse": 8274.868018225987,
+        "r2": 0.946458760778722
+      },
+      "model": {
+        "intercept": 48416.297661385055,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.8516227998779368,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9397661058760622,
+        "f_stat": 652.3941552354449,
+        "f_p_value": 1.5627804982980173e-25,
+        "f_df_model": 1,
+        "f_df_residual": 38,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 48416.297661385055,
+            "std_error": 2842.7166679428,
+            "t_stat": 17.031700066128174,
+            "p_value": 2.222357736689934e-19,
+            "ci95": [
+              42661.51862914637,
+              54171.07669362374
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.8516227998779368,
+            "std_error": 0.03334204621886622,
+            "t_stat": 25.542007658667803,
+            "p_value": 1.562780498298021e-25,
+            "ci95": [
+              0.7841253560995809,
+              0.9191202436562926
+            ],
+            "vif": 1.0,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 104667.27805997859,
+          "residual": -1384.8980599785864,
+          "absolute_error": 1384.8980599785864,
+          "relative_error_percent": 1.340885115136373,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 134150.8341057847,
+          "residual": 10108.56589421528,
+          "absolute_error": 10108.56589421528,
+          "relative_error_percent": 7.00721470782166,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 135207.80019516923,
+          "residual": 10914.149804830784,
+          "absolute_error": 10914.149804830784,
+          "relative_error_percent": 7.469206238235107,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72170.54428855635,
+          "residual": 5628.285711443648,
+          "absolute_error": 5628.285711443648,
+          "relative_error_percent": 7.234409195412899,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179090.5860250835,
+          "residual": 11959.803974916518,
+          "absolute_error": 11959.803974916518,
+          "relative_error_percent": 6.260025941279951,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 109824.77386586338,
+          "residual": -4816.463865863378,
+          "absolute_error": 4816.463865863378,
+          "relative_error_percent": 4.586745435540652,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 65644.27773756777,
+          "residual": 15584.782262432229,
+          "absolute_error": 15584.782262432229,
+          "relative_error_percent": 19.18621520725739,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 100481.43277138655,
+          "residual": -2997.872771386552,
+          "absolute_error": 2997.872771386552,
+          "relative_error_percent": 3.075259840106939,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 111431.75202432103,
+          "residual": -1079.502024321031,
+          "absolute_error": 1079.502024321031,
+          "relative_error_percent": 0.9782329080929759,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169438.14843539096,
+          "residual": -3250.2084353909595,
+          "absolute_error": 3250.2084353909595,
+          "relative_error_percent": 1.95574265821633,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "forward-2",
+      "method": "forward",
+      "method_label": "Forward SFS",
+      "k": 2,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9885.578159633496,
+      "cv_rmse_std": 3583.0517300019214,
+      "train": {
+        "mae": 6376.801477711442,
+        "mse": 82421303.30986765,
+        "rmse": 9078.617918486692,
+        "r2": 0.9496654854268441
+      },
+      "test": {
+        "mae": 6886.594588246498,
+        "mse": 67220275.37568106,
+        "rmse": 8198.797190788478,
+        "r2": 0.9474386447268489
+      },
+      "model": {
+        "intercept": 46346.3387612366,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7886182999424614,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03257662731702059,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9324211146488057,
+        "f_stat": 349.04104329569395,
+        "f_p_value": 9.649812292514553e-25,
+        "f_df_model": 2,
+        "f_df_residual": 37,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 46346.3387612366,
+            "std_error": 2971.236462798471,
+            "t_stat": 15.59833400724529,
+            "p_value": 7.489298476787704e-18,
+            "ci95": [
+              40326.04183443706,
+              52366.635688036135
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7886182999424614,
+            "std_error": 0.04681337574933552,
+            "t_stat": 16.846003675640826,
+            "p_value": 6.120365803854702e-19,
+            "ci95": [
+              0.693765390830208,
+              0.8834712090547147
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03257662731702059,
+            "std_error": 0.017514140043660788,
+            "t_stat": 1.8600186612537475,
+            "p_value": 0.07084678339897563,
+            "ci95": [
+              -0.0029103912358812156,
+              0.06806364586992239
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102284.6460518289,
+          "residual": 997.7339481711097,
+          "absolute_error": 997.7339481711097,
+          "relative_error_percent": 0.9660253260731497,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 133873.92383811908,
+          "residual": 10385.476161880913,
+          "absolute_error": 10385.476161880913,
+          "relative_error_percent": 7.199167722783343,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 134182.14951650106,
+          "residual": 11939.800483498955,
+          "absolute_error": 11939.800483498955,
+          "relative_error_percent": 8.17112041243561,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 73701.10693630345,
+          "residual": 4097.723063696554,
+          "absolute_error": 4097.723063696554,
+          "relative_error_percent": 5.267075435063168,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 180642.25299736104,
+          "residual": 10408.137002638978,
+          "absolute_error": 10408.137002638978,
+          "relative_error_percent": 5.447849126421033,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 114717.24903894303,
+          "residual": -9708.939038943034,
+          "absolute_error": 9708.939038943034,
+          "relative_error_percent": 9.245876863405414,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 68335.07575312017,
+          "residual": 12893.98424687983,
+          "absolute_error": 12893.98424687983,
+          "relative_error_percent": 15.873610068711654,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 97433.4592227501,
+          "residual": 50.10077724989969,
+          "absolute_error": 50.10077724989969,
+          "relative_error_percent": 0.05139407839629543,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114580.92136452152,
+          "residual": -4228.67136452152,
+          "absolute_error": 4228.67136452152,
+          "relative_error_percent": 3.831975663859614,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 170343.31979498419,
+          "residual": -4155.379794984183,
+          "absolute_error": 4155.379794984183,
+          "relative_error_percent": 2.500409954527496,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "forward-3",
+      "method": "forward",
+      "method_label": "Forward SFS",
+      "k": 3,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10177.642696203748,
+      "cv_rmse_std": 3256.6804441087256,
+      "train": {
+        "mae": 6334.814095571141,
+        "mse": 81943542.34370568,
+        "rmse": 9052.267248800474,
+        "r2": 0.9499572530324031
+      },
+      "test": {
+        "mae": 7320.441614848125,
+        "mse": 77506468.16885397,
+        "rmse": 8803.775790469335,
+        "r2": 0.9393955917820571
+      },
+      "model": {
+        "intercept": 42989.00816508668,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7788410440821668,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03471025486942026,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.02939189909755274,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9090933876730857,
+        "f_stat": 227.79498982679945,
+        "f_p_value": 1.8474317896878477e-23,
+        "f_df_model": 3,
+        "f_df_residual": 36,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42989.00816508668,
+            "std_error": 7919.7725171036,
+            "t_stat": 5.428060979308092,
+            "p_value": 4.041216456576364e-06,
+            "ci95": [
+              26926.965034019027,
+              59051.05129615433
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7788410440821668,
+            "std_error": 0.051911034439577806,
+            "t_stat": 15.003381313633886,
+            "p_value": 4.592578715978761e-17,
+            "ci95": [
+              0.6735605865505695,
+              0.8841215016137641
+            ],
+            "vif": 2.525800946293161,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03471025486942026,
+            "std_error": 0.018306482490836995,
+            "t_stat": 1.8960635876823362,
+            "p_value": 0.06600037194124721,
+            "ci95": [
+              -0.002417012449299899,
+              0.07183752218814042
+            ],
+            "vif": 2.244149821335617,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.02939189909755274,
+            "std_error": 0.06415469322089738,
+            "t_stat": 0.4581410590858969,
+            "p_value": 0.64960469419921,
+            "ci95": [
+              -0.1007198493584904,
+              0.1595036475535959
+            ],
+            "vif": 1.2117875999957919,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103901.89696960006,
+          "residual": -619.5169696000521,
+          "absolute_error": 619.5169696000521,
+          "relative_error_percent": 0.5998283246378057,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132763.0599312563,
+          "residual": 11496.34006874368,
+          "absolute_error": 11496.34006874368,
+          "relative_error_percent": 7.969213838920501,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 133567.9037004382,
+          "residual": 12554.0462995618,
+          "absolute_error": 12554.0462995618,
+          "relative_error_percent": 8.59148560470333,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72911.78976735754,
+          "residual": 4887.040232642466,
+          "absolute_error": 4887.040232642466,
+          "relative_error_percent": 6.281637182258996,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179627.92567223712,
+          "residual": 11422.464327762893,
+          "absolute_error": 11422.464327762893,
+          "relative_error_percent": 5.97877048445852,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115166.64864795281,
+          "residual": -10158.338647952813,
+          "absolute_error": 10158.338647952813,
+          "relative_error_percent": 9.673842620600992,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67113.57690570195,
+          "residual": 14115.483094298048,
+          "absolute_error": 14115.483094298048,
+          "relative_error_percent": 17.37738082195959,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98154.80686776248,
+          "residual": -671.2468677624856,
+          "absolute_error": 671.2468677624856,
+          "relative_error_percent": 0.6885744301526182,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114756.11555221121,
+          "residual": -4403.865552211209,
+          "absolute_error": 4403.865552211209,
+          "relative_error_percent": 3.9907347174264314,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169064.0140879458,
+          "residual": -2876.0740879458026,
+          "absolute_error": 2876.0740879458026,
+          "relative_error_percent": 1.730615403227095,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "forward-4",
+      "method": "forward",
+      "method_label": "Forward SFS",
+      "k": 4,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_Florida"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10272.66522967369,
+      "cv_rmse_std": 3268.3685558873813,
+      "train": {
+        "mae": 6297.559585828065,
+        "mse": 81658527.73260553,
+        "rmse": 9036.510816272259,
+        "r2": 0.9501313108490097
+      },
+      "test": {
+        "mae": 7431.473270412908,
+        "mse": 82238439.22167161,
+        "rmse": 9068.541184869351,
+        "r2": 0.9356955353592089
+      },
+      "model": {
+        "intercept": 42922.43234093212,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7753799289895303,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.036327059535269504,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.031870423249796914,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -1272.160786779385,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.884251963646576,
+        "f_stat": 166.71079812740047,
+        "f_p_value": 2.871937033084108e-22,
+        "f_df_model": 4,
+        "f_df_residual": 35,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42922.43234093212,
+            "std_error": 8020.396797666889,
+            "t_stat": 5.351659453235299,
+            "p_value": 5.529625873089752e-06,
+            "ci95": [
+              26640.161214274915,
+              59204.70346758933
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7753799289895303,
+            "std_error": 0.0534805511079929,
+            "t_stat": 14.498353381284556,
+            "p_value": 2.3058263626640457e-16,
+            "ci95": [
+              0.6668086381779963,
+              0.8839512198010644
+            ],
+            "vif": 2.6154729650389013,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.036327059535269504,
+            "std_error": 0.019102403989173893,
+            "t_stat": 1.9017009354350125,
+            "p_value": 0.0654670335800984,
+            "ci95": [
+              -0.0024528822517933813,
+              0.07510700132233239
+            ],
+            "vif": 2.3839482387938506,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.031870423249796914,
+            "std_error": 0.06533744480699476,
+            "t_stat": 0.48778190429609514,
+            "p_value": 0.6287460582298844,
+            "ci95": [
+              -0.10077164146450232,
+              0.16451248796409615
+            ],
+            "vif": 1.2262320516580507,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -1272.160786779385,
+            "std_error": 3639.780492735835,
+            "t_stat": -0.34951579891104023,
+            "p_value": 0.7287964395044193,
+            "ci95": [
+              -8661.308022173342,
+              6116.9864486145725
+            ],
+            "vif": 1.0646776983458153,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102978.26243868438,
+          "residual": 304.1175613156229,
+          "absolute_error": 304.1175613156229,
+          "relative_error_percent": 0.2944525109855358,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132979.3402644851,
+          "residual": 11280.059735514893,
+          "absolute_error": 11280.059735514893,
+          "relative_error_percent": 7.819289235581802,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132521.05285610058,
+          "residual": 13600.897143899434,
+          "absolute_error": 13600.897143899434,
+          "relative_error_percent": 9.307908321713084,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71952.38725075763,
+          "residual": 5846.442749242371,
+          "absolute_error": 5846.442749242371,
+          "relative_error_percent": 7.514820915998828,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178668.35249140533,
+          "residual": 12382.037508594687,
+          "absolute_error": 12382.037508594687,
+          "relative_error_percent": 6.481032312257875,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115738.44472844573,
+          "residual": -10730.13472844573,
+          "absolute_error": 10730.13472844573,
+          "relative_error_percent": 10.218367221075866,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67439.97515767507,
+          "residual": 13789.084842324926,
+          "absolute_error": 13789.084842324926,
+          "relative_error_percent": 16.975556337011565,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98397.73803877179,
+          "residual": -914.1780387717881,
+          "absolute_error": 914.1780387717881,
+          "relative_error_percent": 0.9377766248706839,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113956.00325905217,
+          "residual": -3603.7532590521732,
+          "absolute_error": 3603.7532590521732,
+          "relative_error_percent": 3.265681722893891,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 168051.96713696746,
+          "residual": -1864.0271369674592,
+          "absolute_error": 1864.0271369674592,
+          "relative_error_percent": 1.1216380303934566,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "forward-5",
+      "method": "forward",
+      "method_label": "Forward SFS",
+      "k": 5,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_Florida",
+        "State_New York"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10158.660838246677,
+      "cv_rmse_std": 3434.4604886992465,
+      "train": {
+        "mae": 6341.535758081851,
+        "mse": 81571001.80077371,
+        "rmse": 9031.66661257897,
+        "r2": 0.9501847627493607
+      },
+      "test": {
+        "mae": 7514.293659640607,
+        "mse": 83502864.03257746,
+        "rmse": 9137.99015279495,
+        "r2": 0.9347068473282424
+      },
+      "model": {
+        "intercept": 42554.16761773238,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7734671927327998,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03661002586385613,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.03288459753625607,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -959.2841600571069,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 699.3690525192592,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8530904064885454,
+        "f_stat": 129.70441863373293,
+        "f_p_value": 3.9077038418692665e-21,
+        "f_df_model": 5,
+        "f_df_residual": 34,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42554.16761773238,
+            "std_error": 8358.538206708878,
+            "t_stat": 5.091101645450014,
+            "p_value": 1.3086760335435056e-05,
+            "ci95": [
+              25567.574241225895,
+              59540.760994238866
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7734671927327998,
+            "std_error": 0.05514906906550928,
+            "t_stat": 14.02502718249025,
+            "p_value": 1.0686978486060337e-15,
+            "ci95": [
+              0.6613907999304349,
+              0.8855435855351648
+            ],
+            "vif": 2.704652545511513,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03661002586385613,
+            "std_error": 0.019427464933191915,
+            "t_stat": 1.8844468894810733,
+            "p_value": 0.06807739016982882,
+            "ci95": [
+              -0.002871333076585658,
+              0.07609138480429792
+            ],
+            "vif": 2.3978922282957282,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.03288459753625607,
+            "std_error": 0.06646820999717497,
+            "t_stat": 0.49474173499863666,
+            "p_value": 0.6239644295903665,
+            "ci95": [
+              -0.10219505727467985,
+              0.16796425234719198
+            ],
+            "vif": 1.234107409860041,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -959.2841600571069,
+            "std_error": 4038.1077213805165,
+            "t_stat": -0.2375578429911608,
+            "p_value": 0.8136497729181493,
+            "ci95": [
+              -9165.706404866145,
+              7247.138084751932
+            ],
+            "vif": 1.2743836566980131,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 699.3690525192592,
+            "std_error": 3661.562727359725,
+            "t_stat": 0.1910028871807856,
+            "p_value": 0.8496593413793956,
+            "ci95": [
+              -6741.821695679953,
+              8140.559800718471
+            ],
+            "vif": 1.2713276107446665,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103015.20159796182,
+          "residual": 267.17840203818923,
+          "absolute_error": 267.17840203818923,
+          "relative_error_percent": 0.25868730178195853,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132582.27760815565,
+          "residual": 11677.122391844343,
+          "absolute_error": 11677.122391844343,
+          "relative_error_percent": 8.094531373237615,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132447.7384517448,
+          "residual": 13674.211548255204,
+          "absolute_error": 13674.211548255204,
+          "relative_error_percent": 9.358081758596297,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71976.09851257897,
+          "residual": 5822.731487421028,
+          "absolute_error": 5822.731487421028,
+          "relative_error_percent": 7.484343257374215,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178537.48221055063,
+          "residual": 12512.907789449382,
+          "absolute_error": 12512.907789449382,
+          "relative_error_percent": 6.549532711997803,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116161.24230165103,
+          "residual": -11152.932301651032,
+          "absolute_error": 11152.932301651032,
+          "relative_error_percent": 10.620999711023853,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67851.69209675625,
+          "residual": 13377.36790324375,
+          "absolute_error": 13377.36790324375,
+          "relative_error_percent": 16.46869716729918,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98791.73374687451,
+          "residual": -1308.1737468745123,
+          "absolute_error": 1308.1737468745123,
+          "relative_error_percent": 1.3419429356852708,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113969.43533012444,
+          "residual": -3617.185330124441,
+          "absolute_error": 3617.185330124441,
+          "relative_error_percent": 3.277853718546238,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 167921.0656955042,
+          "residual": -1733.12569550419,
+          "absolute_error": 1733.12569550419,
+          "relative_error_percent": 1.0428709180125766,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "rfe-1",
+      "method": "rfe",
+      "method_label": "RFE (Backward)",
+      "k": 1,
+      "features": [
+        "R&D Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9745.400782319539,
+      "cv_rmse_std": 3225.497354376572,
+      "train": {
+        "mae": 6941.739119641637,
+        "mse": 90128072.57027796,
+        "rmse": 9493.580597976612,
+        "r2": 0.9449589778363044
+      },
+      "test": {
+        "mae": 6772.453280477896,
+        "mse": 68473440.71905927,
+        "rmse": 8274.868018225987,
+        "r2": 0.946458760778722
+      },
+      "model": {
+        "intercept": 48416.297661385055,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.8516227998779368,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9397661058760622,
+        "f_stat": 652.3941552354449,
+        "f_p_value": 1.5627804982980173e-25,
+        "f_df_model": 1,
+        "f_df_residual": 38,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 48416.297661385055,
+            "std_error": 2842.7166679428,
+            "t_stat": 17.031700066128174,
+            "p_value": 2.222357736689934e-19,
+            "ci95": [
+              42661.51862914637,
+              54171.07669362374
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.8516227998779368,
+            "std_error": 0.03334204621886622,
+            "t_stat": 25.542007658667803,
+            "p_value": 1.562780498298021e-25,
+            "ci95": [
+              0.7841253560995809,
+              0.9191202436562926
+            ],
+            "vif": 1.0,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 104667.27805997859,
+          "residual": -1384.8980599785864,
+          "absolute_error": 1384.8980599785864,
+          "relative_error_percent": 1.340885115136373,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 134150.8341057847,
+          "residual": 10108.56589421528,
+          "absolute_error": 10108.56589421528,
+          "relative_error_percent": 7.00721470782166,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 135207.80019516923,
+          "residual": 10914.149804830784,
+          "absolute_error": 10914.149804830784,
+          "relative_error_percent": 7.469206238235107,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72170.54428855635,
+          "residual": 5628.285711443648,
+          "absolute_error": 5628.285711443648,
+          "relative_error_percent": 7.234409195412899,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179090.5860250835,
+          "residual": 11959.803974916518,
+          "absolute_error": 11959.803974916518,
+          "relative_error_percent": 6.260025941279951,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 109824.77386586338,
+          "residual": -4816.463865863378,
+          "absolute_error": 4816.463865863378,
+          "relative_error_percent": 4.586745435540652,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 65644.27773756777,
+          "residual": 15584.782262432229,
+          "absolute_error": 15584.782262432229,
+          "relative_error_percent": 19.18621520725739,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 100481.43277138655,
+          "residual": -2997.872771386552,
+          "absolute_error": 2997.872771386552,
+          "relative_error_percent": 3.075259840106939,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 111431.75202432103,
+          "residual": -1079.502024321031,
+          "absolute_error": 1079.502024321031,
+          "relative_error_percent": 0.9782329080929759,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169438.14843539096,
+          "residual": -3250.2084353909595,
+          "absolute_error": 3250.2084353909595,
+          "relative_error_percent": 1.95574265821633,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "rfe-2",
+      "method": "rfe",
+      "method_label": "RFE (Backward)",
+      "k": 2,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9482.344018607644,
+      "cv_rmse_std": 3204.756544406721,
+      "train": {
+        "mae": 6376.801477711442,
+        "mse": 82421303.30986765,
+        "rmse": 9078.617918486692,
+        "r2": 0.9496654854268441
+      },
+      "test": {
+        "mae": 6886.594588246498,
+        "mse": 67220275.37568106,
+        "rmse": 8198.797190788478,
+        "r2": 0.9474386447268489
+      },
+      "model": {
+        "intercept": 46346.3387612366,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7886182999424614,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03257662731702059,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9324211146488057,
+        "f_stat": 349.04104329569395,
+        "f_p_value": 9.649812292514553e-25,
+        "f_df_model": 2,
+        "f_df_residual": 37,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 46346.3387612366,
+            "std_error": 2971.236462798471,
+            "t_stat": 15.59833400724529,
+            "p_value": 7.489298476787704e-18,
+            "ci95": [
+              40326.04183443706,
+              52366.635688036135
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7886182999424614,
+            "std_error": 0.04681337574933552,
+            "t_stat": 16.846003675640826,
+            "p_value": 6.120365803854702e-19,
+            "ci95": [
+              0.693765390830208,
+              0.8834712090547147
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03257662731702059,
+            "std_error": 0.017514140043660788,
+            "t_stat": 1.8600186612537475,
+            "p_value": 0.07084678339897563,
+            "ci95": [
+              -0.0029103912358812156,
+              0.06806364586992239
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102284.6460518289,
+          "residual": 997.7339481711097,
+          "absolute_error": 997.7339481711097,
+          "relative_error_percent": 0.9660253260731497,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 133873.92383811908,
+          "residual": 10385.476161880913,
+          "absolute_error": 10385.476161880913,
+          "relative_error_percent": 7.199167722783343,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 134182.14951650106,
+          "residual": 11939.800483498955,
+          "absolute_error": 11939.800483498955,
+          "relative_error_percent": 8.17112041243561,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 73701.10693630345,
+          "residual": 4097.723063696554,
+          "absolute_error": 4097.723063696554,
+          "relative_error_percent": 5.267075435063168,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 180642.25299736104,
+          "residual": 10408.137002638978,
+          "absolute_error": 10408.137002638978,
+          "relative_error_percent": 5.447849126421033,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 114717.24903894303,
+          "residual": -9708.939038943034,
+          "absolute_error": 9708.939038943034,
+          "relative_error_percent": 9.245876863405414,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 68335.07575312017,
+          "residual": 12893.98424687983,
+          "absolute_error": 12893.98424687983,
+          "relative_error_percent": 15.873610068711654,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 97433.4592227501,
+          "residual": 50.10077724989969,
+          "absolute_error": 50.10077724989969,
+          "relative_error_percent": 0.05139407839629543,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114580.92136452152,
+          "residual": -4228.67136452152,
+          "absolute_error": 4228.67136452152,
+          "relative_error_percent": 3.831975663859614,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 170343.31979498419,
+          "residual": -4155.379794984183,
+          "absolute_error": 4155.379794984183,
+          "relative_error_percent": 2.500409954527496,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "rfe-3",
+      "method": "rfe",
+      "method_label": "RFE (Backward)",
+      "k": 3,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9952.45431386373,
+      "cv_rmse_std": 3379.6098626541975,
+      "train": {
+        "mae": 6334.814095571141,
+        "mse": 81943542.34370568,
+        "rmse": 9052.267248800474,
+        "r2": 0.9499572530324031
+      },
+      "test": {
+        "mae": 7320.441614848125,
+        "mse": 77506468.16885397,
+        "rmse": 8803.775790469335,
+        "r2": 0.9393955917820571
+      },
+      "model": {
+        "intercept": 42989.00816508668,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7788410440821668,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03471025486942026,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.02939189909755274,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9090933876730857,
+        "f_stat": 227.79498982679945,
+        "f_p_value": 1.8474317896878477e-23,
+        "f_df_model": 3,
+        "f_df_residual": 36,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42989.00816508668,
+            "std_error": 7919.7725171036,
+            "t_stat": 5.428060979308092,
+            "p_value": 4.041216456576364e-06,
+            "ci95": [
+              26926.965034019027,
+              59051.05129615433
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7788410440821668,
+            "std_error": 0.051911034439577806,
+            "t_stat": 15.003381313633886,
+            "p_value": 4.592578715978761e-17,
+            "ci95": [
+              0.6735605865505695,
+              0.8841215016137641
+            ],
+            "vif": 2.525800946293161,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03471025486942026,
+            "std_error": 0.018306482490836995,
+            "t_stat": 1.8960635876823362,
+            "p_value": 0.06600037194124721,
+            "ci95": [
+              -0.002417012449299899,
+              0.07183752218814042
+            ],
+            "vif": 2.244149821335617,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.02939189909755274,
+            "std_error": 0.06415469322089738,
+            "t_stat": 0.4581410590858969,
+            "p_value": 0.64960469419921,
+            "ci95": [
+              -0.1007198493584904,
+              0.1595036475535959
+            ],
+            "vif": 1.2117875999957919,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103901.89696960006,
+          "residual": -619.5169696000521,
+          "absolute_error": 619.5169696000521,
+          "relative_error_percent": 0.5998283246378057,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132763.0599312563,
+          "residual": 11496.34006874368,
+          "absolute_error": 11496.34006874368,
+          "relative_error_percent": 7.969213838920501,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 133567.9037004382,
+          "residual": 12554.0462995618,
+          "absolute_error": 12554.0462995618,
+          "relative_error_percent": 8.59148560470333,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72911.78976735754,
+          "residual": 4887.040232642466,
+          "absolute_error": 4887.040232642466,
+          "relative_error_percent": 6.281637182258996,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179627.92567223712,
+          "residual": 11422.464327762893,
+          "absolute_error": 11422.464327762893,
+          "relative_error_percent": 5.97877048445852,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115166.64864795281,
+          "residual": -10158.338647952813,
+          "absolute_error": 10158.338647952813,
+          "relative_error_percent": 9.673842620600992,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67113.57690570195,
+          "residual": 14115.483094298048,
+          "absolute_error": 14115.483094298048,
+          "relative_error_percent": 17.37738082195959,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98154.80686776248,
+          "residual": -671.2468677624856,
+          "absolute_error": 671.2468677624856,
+          "relative_error_percent": 0.6885744301526182,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114756.11555221121,
+          "residual": -4403.865552211209,
+          "absolute_error": 4403.865552211209,
+          "relative_error_percent": 3.9907347174264314,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169064.0140879458,
+          "residual": -2876.0740879458026,
+          "absolute_error": 2876.0740879458026,
+          "relative_error_percent": 1.730615403227095,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "rfe-4",
+      "method": "rfe",
+      "method_label": "RFE (Backward)",
+      "k": 4,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_Florida"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10100.961612841118,
+      "cv_rmse_std": 3399.9709775375272,
+      "train": {
+        "mae": 6297.559585828065,
+        "mse": 81658527.73260553,
+        "rmse": 9036.510816272259,
+        "r2": 0.9501313108490097
+      },
+      "test": {
+        "mae": 7431.473270412908,
+        "mse": 82238439.22167161,
+        "rmse": 9068.541184869351,
+        "r2": 0.9356955353592089
+      },
+      "model": {
+        "intercept": 42922.43234093212,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7753799289895303,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.036327059535269504,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.031870423249796914,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -1272.160786779385,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.884251963646576,
+        "f_stat": 166.71079812740047,
+        "f_p_value": 2.871937033084108e-22,
+        "f_df_model": 4,
+        "f_df_residual": 35,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42922.43234093212,
+            "std_error": 8020.396797666889,
+            "t_stat": 5.351659453235299,
+            "p_value": 5.529625873089752e-06,
+            "ci95": [
+              26640.161214274915,
+              59204.70346758933
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7753799289895303,
+            "std_error": 0.0534805511079929,
+            "t_stat": 14.498353381284556,
+            "p_value": 2.3058263626640457e-16,
+            "ci95": [
+              0.6668086381779963,
+              0.8839512198010644
+            ],
+            "vif": 2.6154729650389013,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.036327059535269504,
+            "std_error": 0.019102403989173893,
+            "t_stat": 1.9017009354350125,
+            "p_value": 0.0654670335800984,
+            "ci95": [
+              -0.0024528822517933813,
+              0.07510700132233239
+            ],
+            "vif": 2.3839482387938506,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.031870423249796914,
+            "std_error": 0.06533744480699476,
+            "t_stat": 0.48778190429609514,
+            "p_value": 0.6287460582298844,
+            "ci95": [
+              -0.10077164146450232,
+              0.16451248796409615
+            ],
+            "vif": 1.2262320516580507,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -1272.160786779385,
+            "std_error": 3639.780492735835,
+            "t_stat": -0.34951579891104023,
+            "p_value": 0.7287964395044193,
+            "ci95": [
+              -8661.308022173342,
+              6116.9864486145725
+            ],
+            "vif": 1.0646776983458153,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102978.26243868438,
+          "residual": 304.1175613156229,
+          "absolute_error": 304.1175613156229,
+          "relative_error_percent": 0.2944525109855358,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132979.3402644851,
+          "residual": 11280.059735514893,
+          "absolute_error": 11280.059735514893,
+          "relative_error_percent": 7.819289235581802,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132521.05285610058,
+          "residual": 13600.897143899434,
+          "absolute_error": 13600.897143899434,
+          "relative_error_percent": 9.307908321713084,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71952.38725075763,
+          "residual": 5846.442749242371,
+          "absolute_error": 5846.442749242371,
+          "relative_error_percent": 7.514820915998828,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178668.35249140533,
+          "residual": 12382.037508594687,
+          "absolute_error": 12382.037508594687,
+          "relative_error_percent": 6.481032312257875,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115738.44472844573,
+          "residual": -10730.13472844573,
+          "absolute_error": 10730.13472844573,
+          "relative_error_percent": 10.218367221075866,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67439.97515767507,
+          "residual": 13789.084842324926,
+          "absolute_error": 13789.084842324926,
+          "relative_error_percent": 16.975556337011565,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98397.73803877179,
+          "residual": -914.1780387717881,
+          "absolute_error": 914.1780387717881,
+          "relative_error_percent": 0.9377766248706839,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113956.00325905217,
+          "residual": -3603.7532590521732,
+          "absolute_error": 3603.7532590521732,
+          "relative_error_percent": 3.265681722893891,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 168051.96713696746,
+          "residual": -1864.0271369674592,
+          "absolute_error": 1864.0271369674592,
+          "relative_error_percent": 1.1216380303934566,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "rfe-5",
+      "method": "rfe",
+      "method_label": "RFE (Backward)",
+      "k": 5,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_Florida",
+        "State_New York"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10158.66083824515,
+      "cv_rmse_std": 3434.4604887002897,
+      "train": {
+        "mae": 6341.535758081851,
+        "mse": 81571001.80077371,
+        "rmse": 9031.66661257897,
+        "r2": 0.9501847627493607
+      },
+      "test": {
+        "mae": 7514.293659640607,
+        "mse": 83502864.03257746,
+        "rmse": 9137.99015279495,
+        "r2": 0.9347068473282424
+      },
+      "model": {
+        "intercept": 42554.16761773238,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7734671927327998,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03661002586385613,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.03288459753625607,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -959.2841600571069,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 699.3690525192592,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8530904064885454,
+        "f_stat": 129.70441863373293,
+        "f_p_value": 3.9077038418692665e-21,
+        "f_df_model": 5,
+        "f_df_residual": 34,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42554.16761773238,
+            "std_error": 8358.538206708878,
+            "t_stat": 5.091101645450014,
+            "p_value": 1.3086760335435056e-05,
+            "ci95": [
+              25567.574241225895,
+              59540.760994238866
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7734671927327998,
+            "std_error": 0.05514906906550928,
+            "t_stat": 14.02502718249025,
+            "p_value": 1.0686978486060337e-15,
+            "ci95": [
+              0.6613907999304349,
+              0.8855435855351648
+            ],
+            "vif": 2.704652545511513,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03661002586385613,
+            "std_error": 0.019427464933191915,
+            "t_stat": 1.8844468894810733,
+            "p_value": 0.06807739016982882,
+            "ci95": [
+              -0.002871333076585658,
+              0.07609138480429792
+            ],
+            "vif": 2.3978922282957282,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.03288459753625607,
+            "std_error": 0.06646820999717497,
+            "t_stat": 0.49474173499863666,
+            "p_value": 0.6239644295903665,
+            "ci95": [
+              -0.10219505727467985,
+              0.16796425234719198
+            ],
+            "vif": 1.234107409860041,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -959.2841600571069,
+            "std_error": 4038.1077213805165,
+            "t_stat": -0.2375578429911608,
+            "p_value": 0.8136497729181493,
+            "ci95": [
+              -9165.706404866145,
+              7247.138084751932
+            ],
+            "vif": 1.2743836566980131,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 699.3690525192592,
+            "std_error": 3661.562727359725,
+            "t_stat": 0.1910028871807856,
+            "p_value": 0.8496593413793956,
+            "ci95": [
+              -6741.821695679953,
+              8140.559800718471
+            ],
+            "vif": 1.2713276107446665,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103015.20159796182,
+          "residual": 267.17840203818923,
+          "absolute_error": 267.17840203818923,
+          "relative_error_percent": 0.25868730178195853,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132582.27760815565,
+          "residual": 11677.122391844343,
+          "absolute_error": 11677.122391844343,
+          "relative_error_percent": 8.094531373237615,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132447.7384517448,
+          "residual": 13674.211548255204,
+          "absolute_error": 13674.211548255204,
+          "relative_error_percent": 9.358081758596297,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71976.09851257897,
+          "residual": 5822.731487421028,
+          "absolute_error": 5822.731487421028,
+          "relative_error_percent": 7.484343257374215,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178537.48221055063,
+          "residual": 12512.907789449382,
+          "absolute_error": 12512.907789449382,
+          "relative_error_percent": 6.549532711997803,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116161.24230165103,
+          "residual": -11152.932301651032,
+          "absolute_error": 11152.932301651032,
+          "relative_error_percent": 10.620999711023853,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67851.69209675625,
+          "residual": 13377.36790324375,
+          "absolute_error": 13377.36790324375,
+          "relative_error_percent": 16.46869716729918,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98791.73374687451,
+          "residual": -1308.1737468745123,
+          "absolute_error": 1308.1737468745123,
+          "relative_error_percent": 1.3419429356852708,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113969.43533012444,
+          "residual": -3617.185330124441,
+          "absolute_error": 3617.185330124441,
+          "relative_error_percent": 3.277853718546238,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 167921.0656955042,
+          "residual": -1733.12569550419,
+          "absolute_error": 1733.12569550419,
+          "relative_error_percent": 1.0428709180125766,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "elasticnet-1",
+      "method": "elasticnet",
+      "method_label": "ElasticNet (L1 + L2)",
+      "k": 1,
+      "features": [
+        "R&D Spend"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": 0.2,
+      "cv_rmse": 9745.400782319539,
+      "cv_rmse_std": 3225.497354376572,
+      "train": {
+        "mae": 6941.739119641637,
+        "mse": 90128072.57027796,
+        "rmse": 9493.580597976612,
+        "r2": 0.9449589778363044
+      },
+      "test": {
+        "mae": 6772.453280477896,
+        "mse": 68473440.71905927,
+        "rmse": 8274.868018225987,
+        "r2": 0.946458760778722
+      },
+      "model": {
+        "intercept": 48416.297661385055,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.8516227998779368,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9397661058760622,
+        "f_stat": 652.3941552354449,
+        "f_p_value": 1.5627804982980173e-25,
+        "f_df_model": 1,
+        "f_df_residual": 38,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 48416.297661385055,
+            "std_error": 2842.7166679428,
+            "t_stat": 17.031700066128174,
+            "p_value": 2.222357736689934e-19,
+            "ci95": [
+              42661.51862914637,
+              54171.07669362374
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.8516227998779368,
+            "std_error": 0.03334204621886622,
+            "t_stat": 25.542007658667803,
+            "p_value": 1.562780498298021e-25,
+            "ci95": [
+              0.7841253560995809,
+              0.9191202436562926
+            ],
+            "vif": 1.0,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 104667.27805997859,
+          "residual": -1384.8980599785864,
+          "absolute_error": 1384.8980599785864,
+          "relative_error_percent": 1.340885115136373,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 134150.8341057847,
+          "residual": 10108.56589421528,
+          "absolute_error": 10108.56589421528,
+          "relative_error_percent": 7.00721470782166,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 135207.80019516923,
+          "residual": 10914.149804830784,
+          "absolute_error": 10914.149804830784,
+          "relative_error_percent": 7.469206238235107,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72170.54428855635,
+          "residual": 5628.285711443648,
+          "absolute_error": 5628.285711443648,
+          "relative_error_percent": 7.234409195412899,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179090.5860250835,
+          "residual": 11959.803974916518,
+          "absolute_error": 11959.803974916518,
+          "relative_error_percent": 6.260025941279951,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 109824.77386586338,
+          "residual": -4816.463865863378,
+          "absolute_error": 4816.463865863378,
+          "relative_error_percent": 4.586745435540652,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 65644.27773756777,
+          "residual": 15584.782262432229,
+          "absolute_error": 15584.782262432229,
+          "relative_error_percent": 19.18621520725739,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 100481.43277138655,
+          "residual": -2997.872771386552,
+          "absolute_error": 2997.872771386552,
+          "relative_error_percent": 3.075259840106939,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 111431.75202432103,
+          "residual": -1079.502024321031,
+          "absolute_error": 1079.502024321031,
+          "relative_error_percent": 0.9782329080929759,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169438.14843539096,
+          "residual": -3250.2084353909595,
+          "absolute_error": 3250.2084353909595,
+          "relative_error_percent": 1.95574265821633,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "elasticnet-2",
+      "method": "elasticnet",
+      "method_label": "ElasticNet (L1 + L2)",
+      "k": 2,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": 0.2,
+      "cv_rmse": 9482.344018607644,
+      "cv_rmse_std": 3204.756544406721,
+      "train": {
+        "mae": 6376.801477711442,
+        "mse": 82421303.30986765,
+        "rmse": 9078.617918486692,
+        "r2": 0.9496654854268441
+      },
+      "test": {
+        "mae": 6886.594588246498,
+        "mse": 67220275.37568106,
+        "rmse": 8198.797190788478,
+        "r2": 0.9474386447268489
+      },
+      "model": {
+        "intercept": 46346.3387612366,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7886182999424614,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03257662731702059,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9324211146488057,
+        "f_stat": 349.04104329569395,
+        "f_p_value": 9.649812292514553e-25,
+        "f_df_model": 2,
+        "f_df_residual": 37,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 46346.3387612366,
+            "std_error": 2971.236462798471,
+            "t_stat": 15.59833400724529,
+            "p_value": 7.489298476787704e-18,
+            "ci95": [
+              40326.04183443706,
+              52366.635688036135
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7886182999424614,
+            "std_error": 0.04681337574933552,
+            "t_stat": 16.846003675640826,
+            "p_value": 6.120365803854702e-19,
+            "ci95": [
+              0.693765390830208,
+              0.8834712090547147
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03257662731702059,
+            "std_error": 0.017514140043660788,
+            "t_stat": 1.8600186612537475,
+            "p_value": 0.07084678339897563,
+            "ci95": [
+              -0.0029103912358812156,
+              0.06806364586992239
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102284.6460518289,
+          "residual": 997.7339481711097,
+          "absolute_error": 997.7339481711097,
+          "relative_error_percent": 0.9660253260731497,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 133873.92383811908,
+          "residual": 10385.476161880913,
+          "absolute_error": 10385.476161880913,
+          "relative_error_percent": 7.199167722783343,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 134182.14951650106,
+          "residual": 11939.800483498955,
+          "absolute_error": 11939.800483498955,
+          "relative_error_percent": 8.17112041243561,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 73701.10693630345,
+          "residual": 4097.723063696554,
+          "absolute_error": 4097.723063696554,
+          "relative_error_percent": 5.267075435063168,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 180642.25299736104,
+          "residual": 10408.137002638978,
+          "absolute_error": 10408.137002638978,
+          "relative_error_percent": 5.447849126421033,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 114717.24903894303,
+          "residual": -9708.939038943034,
+          "absolute_error": 9708.939038943034,
+          "relative_error_percent": 9.245876863405414,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 68335.07575312017,
+          "residual": 12893.98424687983,
+          "absolute_error": 12893.98424687983,
+          "relative_error_percent": 15.873610068711654,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 97433.4592227501,
+          "residual": 50.10077724989969,
+          "absolute_error": 50.10077724989969,
+          "relative_error_percent": 0.05139407839629543,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114580.92136452152,
+          "residual": -4228.67136452152,
+          "absolute_error": 4228.67136452152,
+          "relative_error_percent": 3.831975663859614,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 170343.31979498419,
+          "residual": -4155.379794984183,
+          "absolute_error": 4155.379794984183,
+          "relative_error_percent": 2.500409954527496,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "elasticnet-3",
+      "method": "elasticnet",
+      "method_label": "ElasticNet (L1 + L2)",
+      "k": 3,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": 0.5,
+      "cv_rmse": 9669.39769013137,
+      "cv_rmse_std": 3557.9245725892615,
+      "train": {
+        "mae": 6334.814095571141,
+        "mse": 81943542.34370568,
+        "rmse": 9052.267248800474,
+        "r2": 0.9499572530324031
+      },
+      "test": {
+        "mae": 7320.441614848125,
+        "mse": 77506468.16885397,
+        "rmse": 8803.775790469335,
+        "r2": 0.9393955917820571
+      },
+      "model": {
+        "intercept": 42989.00816508668,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7788410440821668,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03471025486942026,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.02939189909755274,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9090933876730857,
+        "f_stat": 227.79498982679945,
+        "f_p_value": 1.8474317896878477e-23,
+        "f_df_model": 3,
+        "f_df_residual": 36,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42989.00816508668,
+            "std_error": 7919.7725171036,
+            "t_stat": 5.428060979308092,
+            "p_value": 4.041216456576364e-06,
+            "ci95": [
+              26926.965034019027,
+              59051.05129615433
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7788410440821668,
+            "std_error": 0.051911034439577806,
+            "t_stat": 15.003381313633886,
+            "p_value": 4.592578715978761e-17,
+            "ci95": [
+              0.6735605865505695,
+              0.8841215016137641
+            ],
+            "vif": 2.525800946293161,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03471025486942026,
+            "std_error": 0.018306482490836995,
+            "t_stat": 1.8960635876823362,
+            "p_value": 0.06600037194124721,
+            "ci95": [
+              -0.002417012449299899,
+              0.07183752218814042
+            ],
+            "vif": 2.244149821335617,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.02939189909755274,
+            "std_error": 0.06415469322089738,
+            "t_stat": 0.4581410590858969,
+            "p_value": 0.64960469419921,
+            "ci95": [
+              -0.1007198493584904,
+              0.1595036475535959
+            ],
+            "vif": 1.2117875999957919,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103901.89696960006,
+          "residual": -619.5169696000521,
+          "absolute_error": 619.5169696000521,
+          "relative_error_percent": 0.5998283246378057,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132763.0599312563,
+          "residual": 11496.34006874368,
+          "absolute_error": 11496.34006874368,
+          "relative_error_percent": 7.969213838920501,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 133567.9037004382,
+          "residual": 12554.0462995618,
+          "absolute_error": 12554.0462995618,
+          "relative_error_percent": 8.59148560470333,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72911.78976735754,
+          "residual": 4887.040232642466,
+          "absolute_error": 4887.040232642466,
+          "relative_error_percent": 6.281637182258996,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179627.92567223712,
+          "residual": 11422.464327762893,
+          "absolute_error": 11422.464327762893,
+          "relative_error_percent": 5.97877048445852,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115166.64864795281,
+          "residual": -10158.338647952813,
+          "absolute_error": 10158.338647952813,
+          "relative_error_percent": 9.673842620600992,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67113.57690570195,
+          "residual": 14115.483094298048,
+          "absolute_error": 14115.483094298048,
+          "relative_error_percent": 17.37738082195959,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98154.80686776248,
+          "residual": -671.2468677624856,
+          "absolute_error": 671.2468677624856,
+          "relative_error_percent": 0.6885744301526182,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114756.11555221121,
+          "residual": -4403.865552211209,
+          "absolute_error": 4403.865552211209,
+          "relative_error_percent": 3.9907347174264314,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169064.0140879458,
+          "residual": -2876.0740879458026,
+          "absolute_error": 2876.0740879458026,
+          "relative_error_percent": 1.730615403227095,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "elasticnet-4",
+      "method": "elasticnet",
+      "method_label": "ElasticNet (L1 + L2)",
+      "k": 4,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_New York"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": 0.2,
+      "cv_rmse": 9912.16418097401,
+      "cv_rmse_std": 3432.278469968785,
+      "train": {
+        "mae": 6390.668073855796,
+        "mse": 81706394.61815155,
+        "rmse": 9039.158955243101,
+        "r2": 0.9501020786438474
+      },
+      "test": {
+        "mae": 7474.740626347193,
+        "mse": 80949594.99164425,
+        "rmse": 8997.19928598029,
+        "r2": 0.9367033175958572
+      },
+      "model": {
+        "intercept": 42410.30908405062,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7746825805130206,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03573424379441169,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.03183486825464481,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 1052.219880053728,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.886065971672543,
+        "f_stat": 166.60800614911005,
+        "f_p_value": 2.9014566723283963e-22,
+        "f_df_model": 4,
+        "f_df_residual": 35,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42410.30908405062,
+            "std_error": 8223.43186681452,
+            "t_stat": 5.157251834869149,
+            "p_value": 9.970354545859574e-06,
+            "ci95": [
+              25715.854853803947,
+              59104.76331429729
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7746825805130206,
+            "std_error": 0.05416600846008522,
+            "t_stat": 14.302006046538985,
+            "p_value": 3.475017302125674e-16,
+            "ci95": [
+              0.6647197372965266,
+              0.8846454237295147
+            ],
+            "vif": 2.6813755945236446,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03573424379441169,
+            "std_error": 0.018815596804102303,
+            "t_stat": 1.899182054465616,
+            "p_value": 0.06580770441761472,
+            "ci95": [
+              -0.0024634484523581995,
+              0.07393193604118158
+            ],
+            "vif": 2.311544534234606,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.03183486825464481,
+            "std_error": 0.06542107908210054,
+            "t_stat": 0.48661484495988616,
+            "p_value": 0.6295647021761077,
+            "ci95": [
+              -0.10097698306462015,
+              0.16464671957390975
+            ],
+            "vif": 1.2286530866987377,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 1052.219880053728,
+            "std_error": 3301.345841423619,
+            "t_stat": 0.31872452345071056,
+            "p_value": 0.7518297387033895,
+            "ci95": [
+              -5649.868486516659,
+              7754.308246624115
+            ],
+            "vif": 1.0621245394485344,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103615.70496702475,
+          "residual": -333.324967024746,
+          "absolute_error": 333.324967024746,
+          "relative_error_percent": 0.32273168668726065,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132245.69745454332,
+          "residual": 12013.702545456676,
+          "absolute_error": 12013.702545456676,
+          "relative_error_percent": 8.327847298308932,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 133070.2390635292,
+          "residual": 13051.710936470801,
+          "absolute_error": 13051.710936470801,
+          "relative_error_percent": 8.9320673153286,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72592.46097857336,
+          "residual": 5206.369021426639,
+          "absolute_error": 5206.369021426639,
+          "relative_error_percent": 6.692091669536211,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179075.96157197986,
+          "residual": 11974.428428020154,
+          "absolute_error": 11974.428428020154,
+          "relative_error_percent": 6.267680703515001,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116014.33808117366,
+          "residual": -11006.02808117366,
+          "absolute_error": 11006.02808117366,
+          "relative_error_percent": 10.48110200152127,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67853.79186123735,
+          "residual": 13375.26813876265,
+          "absolute_error": 13375.26813876265,
+          "relative_error_percent": 16.466112175571958,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98837.47482909176,
+          "residual": -1353.9148290917656,
+          "absolute_error": 1353.9148290917656,
+          "relative_error_percent": 1.3888647779089782,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114480.2628233497,
+          "residual": -4128.012823349694,
+          "absolute_error": 4128.012823349694,
+          "relative_error_percent": 3.7407599966015144,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 168492.58649269515,
+          "residual": -2304.646492695145,
+          "absolute_error": 2304.646492695145,
+          "relative_error_percent": 1.3867712017461344,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "elasticnet-5",
+      "method": "elasticnet",
+      "method_label": "ElasticNet (L1 + L2)",
+      "k": 5,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend",
+        "Administration",
+        "State_New York",
+        "State_Florida"
+      ],
+      "alpha": 0.1,
+      "l1_ratio": 0.2,
+      "cv_rmse": 10158.660838244707,
+      "cv_rmse_std": 3434.4604887007563,
+      "train": {
+        "mae": 6341.535758081853,
+        "mse": 81571001.80077371,
+        "rmse": 9031.66661257897,
+        "r2": 0.9501847627493607
+      },
+      "test": {
+        "mae": 7514.293659640607,
+        "mse": 83502864.0325775,
+        "rmse": 9137.990152794951,
+        "r2": 0.9347068473282424
+      },
+      "model": {
+        "intercept": 42554.16761773238,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7734671927327998,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.036610025863856116,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.03288459753625607,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 699.3690525192578,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -959.2841600571094,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8530904064885454,
+        "f_stat": 129.70441863373293,
+        "f_p_value": 3.9077038418692665e-21,
+        "f_df_model": 5,
+        "f_df_residual": 34,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42554.16761773238,
+            "std_error": 8358.538206708881,
+            "t_stat": 5.091101645450013,
+            "p_value": 1.3086760335435102e-05,
+            "ci95": [
+              25567.574241225888,
+              59540.76099423888
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7734671927327998,
+            "std_error": 0.05514906906550924,
+            "t_stat": 14.02502718249026,
+            "p_value": 1.0686978486060102e-15,
+            "ci95": [
+              0.661390799930435,
+              0.8855435855351647
+            ],
+            "vif": 2.704652545511513,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.036610025863856116,
+            "std_error": 0.019427464933191915,
+            "t_stat": 1.8844468894810726,
+            "p_value": 0.06807739016982889,
+            "ci95": [
+              -0.002871333076585672,
+              0.0760913848042979
+            ],
+            "vif": 2.397892228295729,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.03288459753625607,
+            "std_error": 0.06646820999717498,
+            "t_stat": 0.49474173499863655,
+            "p_value": 0.6239644295903665,
+            "ci95": [
+              -0.10219505727467988,
+              0.16796425234719203
+            ],
+            "vif": 1.2341074098600406,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 699.3690525192578,
+            "std_error": 3661.5627273597224,
+            "t_stat": 0.19100288718078537,
+            "p_value": 0.8496593413793957,
+            "ci95": [
+              -6741.821695679949,
+              8140.559800718464
+            ],
+            "vif": 1.2713276107446665,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -959.2841600571094,
+            "std_error": 4038.1077213805193,
+            "t_stat": -0.23755784299116126,
+            "p_value": 0.8136497729181491,
+            "ci95": [
+              -9165.706404866154,
+              7247.138084751935
+            ],
+            "vif": 1.2743836566980131,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103015.20159796182,
+          "residual": 267.17840203818923,
+          "absolute_error": 267.17840203818923,
+          "relative_error_percent": 0.25868730178195853,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132582.27760815565,
+          "residual": 11677.122391844343,
+          "absolute_error": 11677.122391844343,
+          "relative_error_percent": 8.094531373237615,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132447.73845174478,
+          "residual": 13674.211548255233,
+          "absolute_error": 13674.211548255233,
+          "relative_error_percent": 9.358081758596319,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71976.09851257897,
+          "residual": 5822.731487421028,
+          "absolute_error": 5822.731487421028,
+          "relative_error_percent": 7.484343257374215,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178537.48221055063,
+          "residual": 12512.907789449382,
+          "absolute_error": 12512.907789449382,
+          "relative_error_percent": 6.549532711997803,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116161.24230165101,
+          "residual": -11152.932301651017,
+          "absolute_error": 11152.932301651017,
+          "relative_error_percent": 10.620999711023838,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67851.69209675625,
+          "residual": 13377.36790324375,
+          "absolute_error": 13377.36790324375,
+          "relative_error_percent": 16.46869716729918,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98791.7337468745,
+          "residual": -1308.1737468744977,
+          "absolute_error": 1308.1737468744977,
+          "relative_error_percent": 1.341942935685256,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113969.43533012444,
+          "residual": -3617.185330124441,
+          "absolute_error": 3617.185330124441,
+          "relative_error_percent": 3.277853718546238,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 167921.0656955042,
+          "residual": -1733.12569550419,
+          "absolute_error": 1733.12569550419,
+          "relative_error_percent": 1.0428709180125766,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "exhaustive-1",
+      "method": "exhaustive",
+      "method_label": "Exhaustive Search (Best Subset)",
+      "k": 1,
+      "features": [
+        "R&D Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9745.400782319539,
+      "cv_rmse_std": 3225.497354376572,
+      "train": {
+        "mae": 6941.739119641637,
+        "mse": 90128072.57027796,
+        "rmse": 9493.580597976612,
+        "r2": 0.9449589778363044
+      },
+      "test": {
+        "mae": 6772.453280477896,
+        "mse": 68473440.71905927,
+        "rmse": 8274.868018225987,
+        "r2": 0.946458760778722
+      },
+      "model": {
+        "intercept": 48416.297661385055,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.8516227998779368,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9397661058760622,
+        "f_stat": 652.3941552354449,
+        "f_p_value": 1.5627804982980173e-25,
+        "f_df_model": 1,
+        "f_df_residual": 38,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 48416.297661385055,
+            "std_error": 2842.7166679428,
+            "t_stat": 17.031700066128174,
+            "p_value": 2.222357736689934e-19,
+            "ci95": [
+              42661.51862914637,
+              54171.07669362374
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.8516227998779368,
+            "std_error": 0.03334204621886622,
+            "t_stat": 25.542007658667803,
+            "p_value": 1.562780498298021e-25,
+            "ci95": [
+              0.7841253560995809,
+              0.9191202436562926
+            ],
+            "vif": 1.0,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 104667.27805997859,
+          "residual": -1384.8980599785864,
+          "absolute_error": 1384.8980599785864,
+          "relative_error_percent": 1.340885115136373,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 134150.8341057847,
+          "residual": 10108.56589421528,
+          "absolute_error": 10108.56589421528,
+          "relative_error_percent": 7.00721470782166,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 135207.80019516923,
+          "residual": 10914.149804830784,
+          "absolute_error": 10914.149804830784,
+          "relative_error_percent": 7.469206238235107,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72170.54428855635,
+          "residual": 5628.285711443648,
+          "absolute_error": 5628.285711443648,
+          "relative_error_percent": 7.234409195412899,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179090.5860250835,
+          "residual": 11959.803974916518,
+          "absolute_error": 11959.803974916518,
+          "relative_error_percent": 6.260025941279951,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 109824.77386586338,
+          "residual": -4816.463865863378,
+          "absolute_error": 4816.463865863378,
+          "relative_error_percent": 4.586745435540652,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 65644.27773756777,
+          "residual": 15584.782262432229,
+          "absolute_error": 15584.782262432229,
+          "relative_error_percent": 19.18621520725739,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 100481.43277138655,
+          "residual": -2997.872771386552,
+          "absolute_error": 2997.872771386552,
+          "relative_error_percent": 3.075259840106939,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 111431.75202432103,
+          "residual": -1079.502024321031,
+          "absolute_error": 1079.502024321031,
+          "relative_error_percent": 0.9782329080929759,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169438.14843539096,
+          "residual": -3250.2084353909595,
+          "absolute_error": 3250.2084353909595,
+          "relative_error_percent": 1.95574265821633,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "exhaustive-2",
+      "method": "exhaustive",
+      "method_label": "Exhaustive Search (Best Subset)",
+      "k": 2,
+      "features": [
+        "R&D Spend",
+        "Marketing Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9482.344018607644,
+      "cv_rmse_std": 3204.756544406721,
+      "train": {
+        "mae": 6376.801477711442,
+        "mse": 82421303.30986765,
+        "rmse": 9078.617918486692,
+        "r2": 0.9496654854268441
+      },
+      "test": {
+        "mae": 6886.594588246498,
+        "mse": 67220275.37568106,
+        "rmse": 8198.797190788478,
+        "r2": 0.9474386447268489
+      },
+      "model": {
+        "intercept": 46346.3387612366,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7886182999424614,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03257662731702059,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9324211146488057,
+        "f_stat": 349.04104329569395,
+        "f_p_value": 9.649812292514553e-25,
+        "f_df_model": 2,
+        "f_df_residual": 37,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 46346.3387612366,
+            "std_error": 2971.236462798471,
+            "t_stat": 15.59833400724529,
+            "p_value": 7.489298476787704e-18,
+            "ci95": [
+              40326.04183443706,
+              52366.635688036135
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7886182999424614,
+            "std_error": 0.04681337574933552,
+            "t_stat": 16.846003675640826,
+            "p_value": 6.120365803854702e-19,
+            "ci95": [
+              0.693765390830208,
+              0.8834712090547147
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03257662731702059,
+            "std_error": 0.017514140043660788,
+            "t_stat": 1.8600186612537475,
+            "p_value": 0.07084678339897563,
+            "ci95": [
+              -0.0029103912358812156,
+              0.06806364586992239
+            ],
+            "vif": 2.0989116309034457,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102284.6460518289,
+          "residual": 997.7339481711097,
+          "absolute_error": 997.7339481711097,
+          "relative_error_percent": 0.9660253260731497,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 133873.92383811908,
+          "residual": 10385.476161880913,
+          "absolute_error": 10385.476161880913,
+          "relative_error_percent": 7.199167722783343,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 134182.14951650106,
+          "residual": 11939.800483498955,
+          "absolute_error": 11939.800483498955,
+          "relative_error_percent": 8.17112041243561,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 73701.10693630345,
+          "residual": 4097.723063696554,
+          "absolute_error": 4097.723063696554,
+          "relative_error_percent": 5.267075435063168,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 180642.25299736104,
+          "residual": 10408.137002638978,
+          "absolute_error": 10408.137002638978,
+          "relative_error_percent": 5.447849126421033,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 114717.24903894303,
+          "residual": -9708.939038943034,
+          "absolute_error": 9708.939038943034,
+          "relative_error_percent": 9.245876863405414,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 68335.07575312017,
+          "residual": 12893.98424687983,
+          "absolute_error": 12893.98424687983,
+          "relative_error_percent": 15.873610068711654,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 97433.4592227501,
+          "residual": 50.10077724989969,
+          "absolute_error": 50.10077724989969,
+          "relative_error_percent": 0.05139407839629543,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114580.92136452152,
+          "residual": -4228.67136452152,
+          "absolute_error": 4228.67136452152,
+          "relative_error_percent": 3.831975663859614,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 170343.31979498419,
+          "residual": -4155.379794984183,
+          "absolute_error": 4155.379794984183,
+          "relative_error_percent": 2.500409954527496,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "exhaustive-3",
+      "method": "exhaustive",
+      "method_label": "Exhaustive Search (Best Subset)",
+      "k": 3,
+      "features": [
+        "R&D Spend",
+        "Administration",
+        "Marketing Spend"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9678.07601720463,
+      "cv_rmse_std": 3552.8841521812133,
+      "train": {
+        "mae": 6334.814095571141,
+        "mse": 81943542.34370568,
+        "rmse": 9052.267248800474,
+        "r2": 0.9499572530324031
+      },
+      "test": {
+        "mae": 7320.441614848134,
+        "mse": 77506468.16885412,
+        "rmse": 8803.775790469344,
+        "r2": 0.939395591782057
+      },
+      "model": {
+        "intercept": 42989.00816508666,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7788410440821668,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.02939189909755286,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03471025486942026,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.9090933876730856,
+        "f_stat": 227.79498982679948,
+        "f_p_value": 1.847431789687839e-23,
+        "f_df_model": 3,
+        "f_df_residual": 36,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42989.00816508666,
+            "std_error": 7919.772517103604,
+            "t_stat": 5.428060979308087,
+            "p_value": 4.04121645657644e-06,
+            "ci95": [
+              26926.965034019006,
+              59051.05129615432
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7788410440821668,
+            "std_error": 0.051911034439577855,
+            "t_stat": 15.003381313633874,
+            "p_value": 4.5925787159788754e-17,
+            "ci95": [
+              0.6735605865505694,
+              0.8841215016137642
+            ],
+            "vif": 2.525800946293161,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.02939189909755286,
+            "std_error": 0.06415469322089744,
+            "t_stat": 0.4581410590858984,
+            "p_value": 0.649604694199209,
+            "ci95": [
+              -0.1007198493584904,
+              0.1595036475535961
+            ],
+            "vif": 1.2117875999957919,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03471025486942026,
+            "std_error": 0.018306482490837016,
+            "t_stat": 1.896063587682334,
+            "p_value": 0.06600037194124753,
+            "ci95": [
+              -0.0024170124492999406,
+              0.07183752218814046
+            ],
+            "vif": 2.244149821335617,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103901.89696960006,
+          "residual": -619.5169696000521,
+          "absolute_error": 619.5169696000521,
+          "relative_error_percent": 0.5998283246378057,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132763.05993125628,
+          "residual": 11496.34006874371,
+          "absolute_error": 11496.34006874371,
+          "relative_error_percent": 7.9692138389205205,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 133567.9037004382,
+          "residual": 12554.0462995618,
+          "absolute_error": 12554.0462995618,
+          "relative_error_percent": 8.59148560470333,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 72911.78976735752,
+          "residual": 4887.040232642481,
+          "absolute_error": 4887.040232642481,
+          "relative_error_percent": 6.281637182259015,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 179627.92567223712,
+          "residual": 11422.464327762893,
+          "absolute_error": 11422.464327762893,
+          "relative_error_percent": 5.97877048445852,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115166.64864795282,
+          "residual": -10158.338647952827,
+          "absolute_error": 10158.338647952827,
+          "relative_error_percent": 9.673842620601006,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67113.57690570194,
+          "residual": 14115.483094298062,
+          "absolute_error": 14115.483094298062,
+          "relative_error_percent": 17.377380821959605,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98154.8068677625,
+          "residual": -671.2468677625002,
+          "absolute_error": 671.2468677625002,
+          "relative_error_percent": 0.6885744301526331,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 114756.11555221121,
+          "residual": -4403.865552211209,
+          "absolute_error": 4403.865552211209,
+          "relative_error_percent": 3.9907347174264314,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 169064.0140879458,
+          "residual": -2876.0740879458026,
+          "absolute_error": 2876.0740879458026,
+          "relative_error_percent": 1.730615403227095,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "exhaustive-4",
+      "method": "exhaustive",
+      "method_label": "Exhaustive Search (Best Subset)",
+      "k": 4,
+      "features": [
+        "R&D Spend",
+        "Administration",
+        "Marketing Spend",
+        "State_Florida"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 9885.562229856807,
+      "cv_rmse_std": 3448.484359358139,
+      "train": {
+        "mae": 6297.559585828068,
+        "mse": 81658527.7326055,
+        "rmse": 9036.510816272257,
+        "r2": 0.9501313108490097
+      },
+      "test": {
+        "mae": 7431.473270412901,
+        "mse": 82238439.22167146,
+        "rmse": 9068.541184869342,
+        "r2": 0.935695535359209
+      },
+      "model": {
+        "intercept": 42922.43234093214,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7753799289895307,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.03187042324979689,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.03632705953526935,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -1272.1607867793864,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8842519636465762,
+        "f_stat": 166.7107981274005,
+        "f_p_value": 2.871937033084108e-22,
+        "f_df_model": 4,
+        "f_df_residual": 35,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42922.43234093214,
+            "std_error": 8020.3967976668855,
+            "t_stat": 5.351659453235302,
+            "p_value": 5.529625873089691e-06,
+            "ci95": [
+              26640.161214274936,
+              59204.70346758934
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7753799289895307,
+            "std_error": 0.05348055110799288,
+            "t_stat": 14.498353381284566,
+            "p_value": 2.305826362664007e-16,
+            "ci95": [
+              0.6668086381779967,
+              0.8839512198010646
+            ],
+            "vif": 2.6154729650389013,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.03187042324979689,
+            "std_error": 0.06533744480699472,
+            "t_stat": 0.48778190429609514,
+            "p_value": 0.6287460582298844,
+            "ci95": [
+              -0.10077164146450227,
+              0.16451248796409604
+            ],
+            "vif": 1.2262320516580507,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.03632705953526935,
+            "std_error": 0.019102403989173893,
+            "t_stat": 1.9017009354350045,
+            "p_value": 0.06546703358009952,
+            "ci95": [
+              -0.002452882251793534,
+              0.07510700132233224
+            ],
+            "vif": 2.3839482387938506,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -1272.1607867793864,
+            "std_error": 3639.7804927358347,
+            "t_stat": -0.3495157989110406,
+            "p_value": 0.728796439504419,
+            "ci95": [
+              -8661.308022173343,
+              6116.98644861457
+            ],
+            "vif": 1.0646776983458153,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 102978.26243868441,
+          "residual": 304.1175613155938,
+          "absolute_error": 304.1175613155938,
+          "relative_error_percent": 0.2944525109855076,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132979.3402644851,
+          "residual": 11280.059735514893,
+          "absolute_error": 11280.059735514893,
+          "relative_error_percent": 7.819289235581802,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132521.0528561006,
+          "residual": 13600.897143899405,
+          "absolute_error": 13600.897143899405,
+          "relative_error_percent": 9.307908321713064,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71952.38725075763,
+          "residual": 5846.442749242371,
+          "absolute_error": 5846.442749242371,
+          "relative_error_percent": 7.514820915998828,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178668.35249140533,
+          "residual": 12382.037508594687,
+          "absolute_error": 12382.037508594687,
+          "relative_error_percent": 6.481032312257875,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 115738.4447284457,
+          "residual": -10730.1347284457,
+          "absolute_error": 10730.1347284457,
+          "relative_error_percent": 10.218367221075837,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67439.97515767507,
+          "residual": 13789.084842324926,
+          "absolute_error": 13789.084842324926,
+          "relative_error_percent": 16.975556337011565,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98397.73803877181,
+          "residual": -914.1780387718172,
+          "absolute_error": 914.1780387718172,
+          "relative_error_percent": 0.9377766248707139,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113956.00325905216,
+          "residual": -3603.7532590521587,
+          "absolute_error": 3603.7532590521587,
+          "relative_error_percent": 3.2656817228938775,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 168051.96713696746,
+          "residual": -1864.0271369674592,
+          "absolute_error": 1864.0271369674592,
+          "relative_error_percent": 1.1216380303934566,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    },
+    {
+      "key": "exhaustive-5",
+      "method": "exhaustive",
+      "method_label": "Exhaustive Search (Best Subset)",
+      "k": 5,
+      "features": [
+        "R&D Spend",
+        "Administration",
+        "Marketing Spend",
+        "State_Florida",
+        "State_New York"
+      ],
+      "alpha": null,
+      "l1_ratio": null,
+      "cv_rmse": 10158.660838244703,
+      "cv_rmse_std": 3434.4604887007563,
+      "train": {
+        "mae": 6341.535758081853,
+        "mse": 81571001.8007737,
+        "rmse": 9031.66661257897,
+        "r2": 0.9501847627493607
+      },
+      "test": {
+        "mae": 7514.293659640604,
+        "mse": 83502864.03257725,
+        "rmse": 9137.990152794937,
+        "r2": 0.9347068473282426
+      },
+      "model": {
+        "intercept": 42554.16761773238,
+        "terms": [
+          {
+            "feature": "R&D Spend",
+            "coefficient": 0.7734671927328,
+            "source": "R&D Spend",
+            "kind": "number",
+            "fill": 71430.7
+          },
+          {
+            "feature": "Administration",
+            "coefficient": 0.032884597536255826,
+            "source": "Administration",
+            "kind": "number",
+            "fill": 125604.625
+          },
+          {
+            "feature": "Marketing Spend",
+            "coefficient": 0.036610025863856276,
+            "source": "Marketing Spend",
+            "kind": "number",
+            "fill": 208157.65500000003
+          },
+          {
+            "feature": "State_Florida",
+            "coefficient": -959.2841600571085,
+            "source": "State",
+            "kind": "category",
+            "value": "Florida",
+            "fill": "California"
+          },
+          {
+            "feature": "State_New York",
+            "coefficient": 699.3690525192578,
+            "source": "State",
+            "kind": "category",
+            "value": "New York",
+            "fill": "California"
+          }
+        ]
+      },
+      "statistics": {
+        "test_adjusted_r2": 0.8530904064885458,
+        "f_stat": 129.70441863373296,
+        "f_p_value": 3.9077038418692665e-21,
+        "f_df_model": 5,
+        "f_df_residual": 34,
+        "full_rank": true,
+        "coefficients": [
+          {
+            "predictor": "Intercept",
+            "estimate": 42554.16761773238,
+            "std_error": 8358.538206708889,
+            "t_stat": 5.091101645450008,
+            "p_value": 1.3086760335435317e-05,
+            "ci95": [
+              25567.574241225873,
+              59540.760994238895
+            ],
+            "vif": null,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "R&D Spend",
+            "estimate": 0.7734671927328,
+            "std_error": 0.05514906906550924,
+            "t_stat": 14.025027182490263,
+            "p_value": 1.0686978486060102e-15,
+            "ci95": [
+              0.6613907999304351,
+              0.8855435855351648
+            ],
+            "vif": 2.704652545511513,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Administration",
+            "estimate": 0.032884597536255826,
+            "std_error": 0.06646820999717501,
+            "t_stat": 0.49474173499863267,
+            "p_value": 0.6239644295903694,
+            "ci95": [
+              -0.10219505727468017,
+              0.16796425234719184
+            ],
+            "vif": 1.234107409860041,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "Marketing Spend",
+            "estimate": 0.036610025863856276,
+            "std_error": 0.019427464933191925,
+            "t_stat": 1.8844468894810797,
+            "p_value": 0.06807739016982792,
+            "ci95": [
+              -0.0028713330765855333,
+              0.07609138480429808
+            ],
+            "vif": 2.3978922282957282,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_Florida",
+            "estimate": -959.2841600571085,
+            "std_error": 4038.1077213805215,
+            "t_stat": -0.2375578429911609,
+            "p_value": 0.8136497729181493,
+            "ci95": [
+              -9165.706404866158,
+              7247.138084751941
+            ],
+            "vif": 1.2743836566980133,
+            "vif_infinite": false
+          },
+          {
+            "predictor": "State_New York",
+            "estimate": 699.3690525192578,
+            "std_error": 3661.5627273597233,
+            "t_stat": 0.1910028871807853,
+            "p_value": 0.8496593413793958,
+            "ci95": [
+              -6741.821695679951,
+              8140.559800718466
+            ],
+            "vif": 1.2713276107446665,
+            "vif_infinite": false
+          }
+        ],
+        "scope": "F, t, CI and VIF use training OLS. Adjusted R² uses the held-out test set. Inference is conditional on selected predictors and is not adjusted for feature selection."
+      },
+      "predictions": [
+        {
+          "id": "28",
+          "actual": 103282.38,
+          "predicted": 103015.2015979618,
+          "residual": 267.1784020382038,
+          "absolute_error": 267.1784020382038,
+          "relative_error_percent": 0.25868730178197263,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "11",
+          "actual": 144259.4,
+          "predicted": 132582.27760815568,
+          "residual": 11677.122391844314,
+          "absolute_error": 11677.122391844314,
+          "relative_error_percent": 8.094531373237594,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "10",
+          "actual": 146121.95,
+          "predicted": 132447.73845174484,
+          "residual": 13674.211548255174,
+          "absolute_error": 13674.211548255174,
+          "relative_error_percent": 9.358081758596278,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "41",
+          "actual": 77798.83,
+          "predicted": 71976.09851257899,
+          "residual": 5822.731487421013,
+          "absolute_error": 5822.731487421013,
+          "relative_error_percent": 7.484343257374196,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "2",
+          "actual": 191050.39,
+          "predicted": 178537.4822105507,
+          "residual": 12512.907789449324,
+          "absolute_error": 12512.907789449324,
+          "relative_error_percent": 6.549532711997773,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "27",
+          "actual": 105008.31,
+          "predicted": 116161.24230165106,
+          "residual": -11152.93230165106,
+          "absolute_error": 11152.93230165106,
+          "relative_error_percent": 10.620999711023881,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "38",
+          "actual": 81229.06,
+          "predicted": 67851.69209675625,
+          "residual": 13377.36790324375,
+          "absolute_error": 13377.36790324375,
+          "relative_error_percent": 16.46869716729918,
+          "diagnostic": "Above RMSE"
+        },
+        {
+          "id": "31",
+          "actual": 97483.56,
+          "predicted": 98791.7337468745,
+          "residual": -1308.1737468744977,
+          "absolute_error": 1308.1737468744977,
+          "relative_error_percent": 1.341942935685256,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "22",
+          "actual": 110352.25,
+          "predicted": 113969.43533012446,
+          "residual": -3617.1853301244555,
+          "absolute_error": 3617.1853301244555,
+          "relative_error_percent": 3.277853718546251,
+          "diagnostic": "Within RMSE"
+        },
+        {
+          "id": "4",
+          "actual": 166187.94,
+          "predicted": 167921.06569550425,
+          "residual": -1733.1256955042481,
+          "absolute_error": 1733.1256955042481,
+          "relative_error_percent": 1.0428709180126114,
+          "diagnostic": "Within RMSE"
+        }
+      ]
+    }
+  ],
+  "best_key": "lasso-2",
+  "cv_best_keys": [
+    "lasso-2",
+    "rfe-2",
+    "elasticnet-2",
+    "exhaustive-2"
+  ],
+  "learning_curve": {
+    "description": "All-feature baseline / 全特徵基準：僅使用訓練集內的 5-fold CV。",
+    "sizes": [
+      11,
+      16,
+      21,
+      26,
+      32
+    ],
+    "train_rmse": [
+      4520.033529217353,
+      4994.499864349961,
+      8266.074093982603,
+      9122.936770652846,
+      8814.193478306093
+    ],
+    "validation_rmse": [
+      16971.26552961786,
+      14019.843397133829,
+      11761.013183823308,
+      10654.59918144465,
+      10158.660838244701
+    ]
+  },
+  "lasso_details": {
+    "0.1": {
+      "nonzero_count": 5,
+      "coefficients": {
+        "R&D Spend": 35726.37396821623,
+        "Administration": 851.181414354346,
+        "Marketing Spend": 4519.71510585598,
+        "State_Florida": -415.2816049570644,
+        "State_New York": 333.50739948003417
+      }
+    },
+    "1000.0": {
+      "nonzero_count": 2,
+      "coefficients": {
+        "R&D Spend": 35845.94696656244,
+        "Administration": 0.0,
+        "Marketing Spend": 3441.713647635871,
+        "State_Florida": -0.0,
+        "State_New York": 0.0
+      }
+    }
+  },
+  "exhaustive_search": {
+    "enabled": true,
+    "subsets_evaluated": 31,
+    "cv_fit_count": 155,
+    "selection_basis": "training 5-fold CV RMSE",
+    "limit_reason": null
+  },
+  "preview": [
+    {
+      "R&D Spend": 165349.2,
+      "Administration": 136897.8,
+      "Marketing Spend": 471784.1,
+      "State": "New York",
+      "Profit": 192261.83
+    },
+    {
+      "R&D Spend": 162597.7,
+      "Administration": 151377.59,
+      "Marketing Spend": 443898.53,
+      "State": "California",
+      "Profit": 191792.06
+    },
+    {
+      "R&D Spend": 153441.51,
+      "Administration": 101145.55,
+      "Marketing Spend": 407934.54,
+      "State": "Florida",
+      "Profit": 191050.39
+    },
+    {
+      "R&D Spend": 144372.41,
+      "Administration": 118671.85,
+      "Marketing Spend": 383199.62,
+      "State": "New York",
+      "Profit": 182901.99
+    },
+    {
+      "R&D Spend": 142107.34,
+      "Administration": 91391.77,
+      "Marketing Spend": 366168.42,
+      "State": "Florida",
+      "Profit": 166187.94
+    }
+  ]
+}
